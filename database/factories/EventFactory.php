@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class EventATFactory extends Factory
+class EventFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,7 +20,7 @@ class EventATFactory extends Factory
             //
             'title' => $this->faker->company(),
             'people' => $this->faker->biasedNumberBetween($min = 1, $max = 10, $function = 'sqrt'),
-            'description' => $this->faker->realText(),
+            'description' => $this->faker->company(),
             'image' => $this->faker->imageUrl(),
         ];
     }
