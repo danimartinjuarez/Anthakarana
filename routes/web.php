@@ -14,7 +14,7 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', [EventController::class, 'index'])->name('welcome');
+Route::get('/', [EventController::class, 'index'])->name('home');
 
 Auth::routes();
 
