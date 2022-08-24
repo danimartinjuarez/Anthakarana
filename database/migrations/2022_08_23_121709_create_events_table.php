@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('people');
             $table->string('description');
             $table->string('image');
+            $table->dateTime('date');
             $table->timestamps();
         });
     }

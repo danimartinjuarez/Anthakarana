@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach ($events -> $event){
+<h1>holaaaaa</h1>
+<div>
+@foreach ($events as $event)
 <div class="card bg-dark text-white">
   <img class="card-img" src= "{{ $event -> image }}" alt="Card image">
   <div class="card-img-overlay">
@@ -11,6 +13,6 @@
   </div>
 </div>
 
-}
 @endforeach
+</div>
 @endsection

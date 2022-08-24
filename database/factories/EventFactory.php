@@ -22,6 +22,7 @@ class EventFactory extends Factory
             'people' => $this->faker->biasedNumberBetween($min = 1, $max = 10, $function = 'sqrt'),
             'description' => $this->faker->company(),
             'image' => $this->faker->imageUrl(),
+            'date' => $this->faker->dateTime($max = 'now', $timezone = null),
         ];
     }
 }
