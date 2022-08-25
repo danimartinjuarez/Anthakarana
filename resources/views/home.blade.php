@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('content')<div>
+@section('content')
+<div>
   <div>
     <a href="{{route ('createEvent')}}">
       <p>New Event</p>
