@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')<div>
+  <div>
+    <a href="{{route ('createEvent')}}">
+      <p>New Event</p>
+    </a>
+  </div>
     @foreach ($events as $event)
     
     <div class="card bg-dark text-white">

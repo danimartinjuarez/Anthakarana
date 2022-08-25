@@ -26,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('createEvent');
     }
 
     /**
@@ -85,4 +85,6 @@ class EventController extends Controller
         Event::destroy($id);
         return redirect()->route('home');
     }
+
+
 }
