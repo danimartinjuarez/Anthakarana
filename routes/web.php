@@ -19,4 +19,6 @@ Route::get('/', [EventController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
+
+Route:: delete('/delete/{id}', [EventController::class, 'destroy'])->name ('delete');
