@@ -14,6 +14,13 @@
     width: 50%;
     display: inline;
 }
+.erase-button{
+    float: right;
+
+}
+.erase-img{
+    width: 3vw;
+}
 
 
 
