@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 
 Route:: delete('/delete/{id}', [EventController::class, 'destroy'])->name ('delete');
+
+Route:: get('/create', [EventController::class, 'create'])->name('createEvent');
+Route::post('/store', [EventController::class, 'store'])->name('storeEvent');

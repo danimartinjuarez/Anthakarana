@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
-
-
 @section('content')
-<div class="row row-cols-1 row-cols-md-3 g-4 ">
-    @foreach ($events as $event)
+<div>
+  <div>
+    <a href="{{route ('createEvent')}}">
+      <p>New Event</p>
+    </a>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
+  @foreach ($events as $event)
+
     <div class="card bg-dark text-white">
         <img class="card-img" src="{{ $event -> image }}" alt="Card image">
         <div class="card-img-overlay" id="card-image">

@@ -7,37 +7,26 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        
         $events = Event::get();
         return view('home', compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        return view('createEvent');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $event = request()->except('_token');
+        Event::create($event);
+        return redirect()->route('home');
     }
 
     /**
@@ -85,4 +74,6 @@ class EventController extends Controller
         Event::destroy($id);
         return redirect()->route('home');
     }
+
+
 }
