@@ -1,9 +1,20 @@
-.card-img-overlay{
-
-position: flex;
+#card-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0%;
 
 }
-.card-footer
-{
-    
+#card-footer{
+    background-color: transparent;
+    border-top: none;
 }
+
+#carrousel-button{
+    width: 50%;
+    display: inline;
+}
+
+
+
+
