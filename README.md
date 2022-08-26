@@ -1,55 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+![Logo](https://cdn.discordapp.com/attachments/977641039953293362/1012621404740534344/Header_title.png)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# Description
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Anthakarana is a web app to manage events and be able to sign up for them through a role system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Demo
 
-## Learning Laravel
+![]()
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<details><summary>Mobile version</summary>
 
-## Laravel Sponsors
+![]()
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+</details>
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Run Locally
 
-## Contributing
+Clone the project
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+  git clone https://github.com/prlongoria/Anthakarana.git
+```
+
+Go to the project directory
+
+```bash
+  cd Anthakarana
+```
+
+Install dependencies
+
+```bash
+    - npm install
+    - composer update
+```
+
+Import database
+
+```bash
+  php artisan migrate:fresh --seed
+```
+
+
+Start the server
+
+```bash
+  run Apache and MySQL server in XAMPP
+```
+
+
+## Technical requirements
+
+-Laravel 9
+- PHP 8.1.6
+- Composer 2.3.10
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  vendor/bin/phpunit testname
+```
+
+
+## Work methodology
+
+- TDD
+- Agile
+- Scrum
+- Pair programming
+
+## Versions
+
+
+
+
+#### Tools and technologies used
+
+| Front End | Back End | Diseño y organización | 
+| :---: | :---: | :---: |
+| <img src="https://github.com/Yelose/Yelose/blob/main/img/vscode.png"> <img src="https://github.com/Yelose/Yelose/blob/main/img/html.png"> <img src="https://github.com/Yelose/Yelose/blob/main/img/bootstrap.png">  <img src="https://github.com/Yelose/Yelose/blob/main/img/css.png"> | <img src="https://github.com/Yelose/Yelose/blob/main/img/php.png">  <img src="https://github.com/Yelose/Yelose/blob/main/img/mysql.png"> | <img src="https://github.com/Yelose/Yelose/blob/main/img/figma.png"> <img src="https://github.com/Yelose/Yelose/blob/main/img/jira.png"> <img src="https://github.com/Yelose/Yelose/blob/main/img/google.png"> <img src="https://github.com/Yelose/Yelose/blob/main/img/gimp.png"> |
+
+## Documentation
+
+- [Dailys](https://docs.google.com/document/d/1EziuQpPSRRbpB9EsISnhCZLdKdzbL4kRYDbnlFCxeRE/edit)
+- [Presentation PPTX](https://docs.google.com/presentation/d/1BgbgMifIHgNIUuQrTLsNQ-q26LE5Mff09yFtZSAAj_I/edit#slide=id.g13850f6413d_0_4)
+- [Prototype](https://www.figma.com/file/pj8ZDuCWB1yNSyjJRvgcV2/AT-App?node-id=30%3A3)
+- [UserFlow](https://www.figma.com/file/PvUgKJitoGPjM9uNc4rFs2/User-Flow-TA?node-id=0%3A1)
+- [Brainstorming](https://docs.google.com/document/d/1EziuQpPSRRbpB9EsISnhCZLdKdzbL4kRYDbnlFCxeRE/edit)
+
+
+## Authors
+
+| Nombre | Roll | <img src="https://github.com/Yelose/Yelose/blob/main/img/github.png" width="30px" height="30px"> |
+| :--- | :---: | :---: |
+| David del Castillo |  Scrum Master | https://github.com/BigBen999 |
+| Silvia Sánchez | Product Owner | https://github.com/silviacoder |
+| Patricia Rodríguez | Web Developer |https://github.com/prlongoria |
+| Dani Martín | Web Developer | https://github.com/danimartinjuarez |
+| Juan F Balseca | Web Developer| https://github.com/sudoBuda |
+
+## Acknowledgements
+
+ - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 ## Code of Conduct
 
