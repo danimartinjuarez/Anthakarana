@@ -8,6 +8,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <title>ANTHAKARANA</title>
+ 
+        <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+        
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -80,8 +83,12 @@
             </nav>
 
             <main class="py-4">
+                @yield('carousel')
                 @yield('content')
+             
             </main>
+
+            <script src="{{ asset('JavaScript/carousel.js') }}" type="text/javascript"></script>
         </div>
     </body>
 
