@@ -8,9 +8,9 @@
                 @foreach ($events as $event)
                 <div class="carousel-item active">
                     <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ $event->image }}" class="img-fluid">
+                        <div class="card h-100">
+                            <div class="card-img h-100">
+                                <img src="{{ $event->image }}" class="img-fluid h-100 d-inline-flex">
                             </div>
                             <div class="card-img-overlay">{{$event -> title}}</div>
                         </div>
@@ -31,17 +31,17 @@
 @endsection('carousel')
 @section('content')
 <div>
-    <div class="col-md-3 m-5">
+    <div class="col-md-3 ms-5 ">
         <a class=" d-inline-flex justify-content-center gap-2 link-unstyled" href="{{route ('createEvent')}}">
             <p>New Event</p>
             <img class="erase-img" src=" {{url('/img/AddEventButton.png')}}">
         </a>
 
     </div>
-    <div class="row row-cols-1 row-cols-md-4 g-4 gap-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-md-4 g-4 gap-4 justify-content-center mx-5">
         @foreach ($events as $event)
         <div class="card bg-dark text-white">
-            <img class="card-img img-fluid  d-flex" src="{{ $event -> image }}" alt="Card image">
+            <img class="card-img img-fluid h-75 d-flex" src="{{ $event -> image }}" alt="Card image">
             <div class="card-img-overlay overlay d-flex">
                 </img>
                 <div class="w-75 h-10 d-flex flex-column align-self-end">
@@ -50,10 +50,10 @@
                 </div>
 
                 <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    <div class="">
-                        <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
+                    <!-- <div class=""> -->
+                    <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div>
+                    </div> -->
                     <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
                     <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                         @method('delete')
@@ -66,7 +66,6 @@
                         <a href="{{ route('showEvent', $event->id) }}">👀</a>
                 </form>
                 </div>
-
             </div>
         </div>
         @endforeach
