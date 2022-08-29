@@ -1,27 +1,6 @@
-#card-image{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0%;
-
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+    color: black;
+    text-decoration: none;
 }
-#card-footer{
-    background-color: transparent;
-    border-top: none;
-}
-
-#carrousel-button{
-    width: 50%;
-    display: inline;
-}
-.erase-button{
-    float: right;
-
-}
-.erase-img{
-    width: 3vw;
-}
-
-
-
-
