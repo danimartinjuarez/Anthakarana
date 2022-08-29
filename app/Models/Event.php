@@ -15,6 +15,5 @@ class Event extends Model
         'image',
         'date',
         'start_hour',
-        'end_hour',
     ];
 }

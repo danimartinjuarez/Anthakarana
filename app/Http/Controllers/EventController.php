@@ -7,21 +7,21 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    
+
     public function index()
     {
-        
+
         $events = Event::get();
         return view('home', compact('events'));
     }
 
-    
+
     public function create()
     {
         return view('createEvent');
     }
 
-    
+
     public function store(Request $request)
     {
         $event = request()->except('_token');
@@ -52,14 +52,14 @@ class EventController extends Controller
         return view ('editEvent', compact('event'));
     }
 
-   
+
     public function update(Request $request, $id)
     {
-        $event = request()->except(['_token','_method']);
+        $event = request()->except(['_token', '_method']);
         Event::where('id', '=', $id)->update($event);
-        return redirect ()->route('home');
+        return redirect()->route('home');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.

@@ -24,7 +24,7 @@ class EventFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'date' => $this->faker->date($format = 'Y-m-d', $max = 'now', $timezone = null),
             'start_hour' => $this->faker->time($format = 'H:i', $startTime = 'now', ),
-            'end_hour' => $this->faker->time($format = 'H:i'),
+            //'end_hour' => $this->faker->time($format = 'H:i'),
 
         ];
     }

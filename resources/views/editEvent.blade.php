@@ -1,7 +1,9 @@
 @extends ('layouts.app')
 @section('content')
-<form class="justify-content-center col-md-3 m-5" action="{{ route('storeEvent') }}" method="post">
-  @csrf
+<form class="justify-content-center col-md-3 m-5" action="{{ route('updateEvent', $event->id ) }}" method="post">
+@method('PATCH')
+@csrf
+
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
     <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ $event -> title }}">
