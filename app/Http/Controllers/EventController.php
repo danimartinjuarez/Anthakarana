@@ -52,17 +52,11 @@ class EventController extends Controller
         return view ('editEvent', compact('event'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        $event = request()->except(['_token','method']);
-        Event::where('id', '=', '$id')->update($event);
+        $event = request()->except(['_token','_method']);
+        Event::where('id', '=', $id)->update($event);
         return redirect ()->route('home');
     }
     
