@@ -1,5 +1,6 @@
-.overlay {
-    height: ;
-
-    align-self: flex-end;
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+    color: black;
+    text-decoration: none;
 }

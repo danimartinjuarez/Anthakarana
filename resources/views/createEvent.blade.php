@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<form class="justify-content-center" action="{{ route('storeEvent') }}" method="post">
-    @csrf
-<div class="form-group">
+<form class="justify-content-center col-md-3 m-5" action="{{ route('storeEvent') }}" method="post">
+  @csrf
+  <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
     <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="">
   </div>
@@ -22,7 +22,7 @@
     <label for="exampleFormControlInput1">Date</label>
     <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="">
   </div>
-  
+
   <div class="float-right">
     <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
   </div>
