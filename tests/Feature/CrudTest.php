@@ -35,7 +35,8 @@ class CrudTest extends TestCase
             'description' => 'new description',
             'people' => '15',
             'image' => 'new image',
-            'date' => '2008-06-23 02:11:28'
+            'date' => '2008-06-23 02:11:28',
+            'start_hour'=>'10:00'
         ]);
         $this->assertCount(1, Event::all());
     }
