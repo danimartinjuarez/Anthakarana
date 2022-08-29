@@ -31,6 +31,7 @@
                         onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
                         <img class="erase-img" src=" {{url('/img/Vector.svg')}}">
                     </button>
+                    <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                 </form>
             </div>
         </div>
