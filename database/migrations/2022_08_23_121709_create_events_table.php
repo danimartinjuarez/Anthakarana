@@ -19,8 +19,11 @@ return new class extends Migration
             $table->integer('people');
             $table->string('description');
             $table->string('image');
-            $table->dateTime('date');
+            $table->date('date');
             $table->timestamps();
+            $table->time('start_hour');
+            $table->time('end_hour');
+
         });
     }
 
