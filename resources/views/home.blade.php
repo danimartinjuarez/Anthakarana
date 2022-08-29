@@ -55,14 +55,16 @@
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div>
                     <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
-                    <!-- <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
+                    <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                         @method('delete')
                         @csrf
                         <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
                             <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                         </button>
                         <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
-                </form> -->
+                        
+                        <a href="{{ route('showEvent', $event->id) }}">👀</a>
+                </form>
                 </div>
 
             </div>

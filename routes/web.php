@@ -30,4 +30,4 @@ Route:: get('/edit/{id}', [EventController::class, 'edit'])->name('editEvent');
 
 Route:: patch('/event/{id}', [EventController::class, 'update'])->name('updateEvent');
 
-
+Route:: get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
