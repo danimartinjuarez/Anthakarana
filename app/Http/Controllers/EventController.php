@@ -73,4 +73,13 @@ class EventController extends Controller
         Event::destroy($id);
         return redirect()->route('home');
     }
+
+
+    public function inscribe($id) {
+        $user::User::find(Auth::id());
+        $event::Event::find($id);
+        $user->event()->attach($event);
+        return redirect()->route('home');
+    }
+
 }

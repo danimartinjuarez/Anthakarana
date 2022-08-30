@@ -31,3 +31,5 @@ Route:: get('/edit/{id}', [EventController::class, 'edit'])->name('editEvent')->
 Route:: PATCH('/event/{id}', [EventController::class, 'update'])->name('updateEvent')->middleware('isadmin', 'auth');;
 
 Route:: get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
+
+Route:: get('/inscribe/{id}', [EventController::class, 'insribe'])->name('insribeEvent')->middleware('auth');

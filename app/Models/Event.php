@@ -16,4 +16,8 @@ class Event extends Model
         'date',
         'start_hour',
     ];
+    public function user() {
+        return $this->belongsToMany(User::class);
+        
+    }
 }
