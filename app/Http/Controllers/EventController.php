@@ -11,7 +11,7 @@ class EventController extends Controller
     public function index()
     {
 
-        $events = Event::get();
+        $events = Event::orderBy('date', 'DESC')->get();
         return view('home', compact('events'));
     }
 
@@ -50,7 +50,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        return view ('editEvent', compact('event'));
+        return view('editEvent', compact('event'));
     }
 
 
@@ -73,6 +73,4 @@ class EventController extends Controller
         Event::destroy($id);
         return redirect()->route('home');
     }
-
-
 }
