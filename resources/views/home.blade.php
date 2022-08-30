@@ -66,12 +66,8 @@
                         </button>
                         <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                     </form>
-                    @endif
-                
-                        
+                    @endif 
                     <a href="{{ route('showEvent', $event->id) }}">👀</a>
-                
-                
                 </div>
 
             </div>
