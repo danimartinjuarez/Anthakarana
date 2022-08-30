@@ -41,7 +41,7 @@
     <div class="row row-cols-1 row-cols-md-4 g-4 gap-4 justify-content-center">
         @foreach ($events as $event)
         <div class="card bg-dark text-white">
-            <img class="card-img img-fluid  d-flex" src="{{ $event -> image }}" alt="Card image">
+            <img class="card-img img-fluid  d-flex" src="{{ $event->image }}" alt="Card image">
             <div class="card-img-overlay overlay d-flex">
                 </img>
                 <div class="w-75 h-10 d-flex flex-column align-self-end">

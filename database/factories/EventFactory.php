@@ -21,7 +21,7 @@ class EventFactory extends Factory
             'title' => $this->faker->company(),
             'people' => $this->faker->biasedNumberBetween($min = 1, $max = 10, $function = 'sqrt'),
             'description' => $this->faker->company(),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->imageUrl( 'cats', true, 'Faker'),
             'date' => $this->faker->date($format = 'Y-m-d', $max = 'now', $timezone = null),
             'start_hour' => $this->faker->time($format = 'H:i', $startTime = 'now', ),
             //'end_hour' => $this->faker->time($format = 'H:i'),
