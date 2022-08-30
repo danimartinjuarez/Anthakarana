@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);
-            $table->integer('people');
+            $table->integer('total_people');
+            $table->integer('sub_people')->default(0);
             $table->string('description');
             $table->string('image');
             $table->date('date');
             $table->timestamps();
             $table->time('start_hour');
-
         });
     }
 

@@ -57,7 +57,7 @@ class CrudTest extends TestCase
         $response = $this->post(route('storeEvent'), [
             'title' => 'new title',
             'description' => 'new description',
-            'people' => '15',
+            'total_people' => '15',
             'image' => 'new image',
             'date' => '2008-06-23 02:11:28',
             'start_hour'=>'10:00'
@@ -69,7 +69,7 @@ class CrudTest extends TestCase
             $response = $this->post(route('storeEvent'), [
                 'title' => 'new title',
                 'description' => 'new description',
-                'people' => '15',
+                'total_people' => '15',
                 'image' => 'new image',
                 'date' => '2008-06-23 02:11:28',
                 'start_hour'=>'10:00'

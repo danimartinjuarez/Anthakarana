@@ -19,7 +19,8 @@ class EventFactory extends Factory
         return [
             //
             'title' => $this->faker->company(),
-            'people' => $this->faker->biasedNumberBetween($min = 1, $max = 10, $function = 'sqrt'),
+            'total_people' => $this->faker->biasedNumberBetween($min = 1, $max = 50, $function = 'sqrt'),
+            'sub_people' => $this->faker->biasedNumberBetween($min = 1, $max = 50, $function = 'sqrt'),
             'description' => $this->faker->company(),
             'image' => $this->faker->imageUrl(),
             'date' => $this->faker->date($format = 'Y-m-d', $min = 'now', $timezone = null),

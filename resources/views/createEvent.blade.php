@@ -12,7 +12,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">People</label>
-    <input type="text" name="people" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="text" name="total_people" class="form-control" id="exampleFormControlInput1" placeholder="">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Image</label>
@@ -22,7 +22,10 @@
     <label for="exampleFormControlInput1">Date</label>
     <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="">
   </div>
-
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Start Hour</label>
+    <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
   <div class="float-right">
     <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
   </div>

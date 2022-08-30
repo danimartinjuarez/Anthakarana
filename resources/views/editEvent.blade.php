@@ -1,8 +1,8 @@
 @extends ('layouts.app')
 @section('content')
 <form class="justify-content-center col-md-3 m-5" action="{{ route('updateEvent', $event->id ) }}" method="post">
-@method('PATCH')
-@csrf
+  @method('PATCH')
+  @csrf
 
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
@@ -14,7 +14,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">People</label>
-    <input type="text" name="people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> people }}">
+    <input type="text" name="total_people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Image</label>
@@ -35,7 +35,7 @@
   <div class="btnCreate">
     <button type="submit" class="btn btn-outline-success" value="Create">Editar</button>
   </div>
- 
-  
+
+
 </form>
 @endsection
