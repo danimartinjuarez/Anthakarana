@@ -12,7 +12,6 @@
                             <div class="card-img h-100">
                                 <img src="{{ $event->image }}" class="img-fluid h-100 d-inline-flex">
                             </div>
-                            <div class="card-img-overlay">{{$event -> title}}</div>
                         </div>
                     </div>
                 </div>
@@ -26,12 +25,11 @@
             </a>
         </div>
     </div>
-    <h5 class="mt-2 fw-light">advances one slide at a time</h5>
 </div>
 @endsection('carousel')
 @section('content')
 <div>
-    <div class="col-md-3 ms-5 ">
+    <div class="row-cols-1 row-cols-md-3">
         <a class=" d-inline-flex justify-content-center gap-2 link-unstyled" href="{{route ('createEvent')}}">
             <p>New Event</p>
             <img class="erase-img" src=" {{url('/img/AddEventButton.png')}}">
@@ -55,6 +53,9 @@
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div> -->
                     <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
+
+                    @if (Auth::check() && Auth::user()->isAdmin)
+
                     <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                         @method('delete')
                         @csrf
@@ -62,9 +63,9 @@
                             <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                         </button>
                         <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
-                        
-                        <a href="{{ route('showEvent', $event->id) }}">👀</a>
-                </form>
+                    </form>
+                    @endif 
+                    <a href="{{ route('showEvent', $event->id) }}">👀</a>
                 </div>
             </div>
         </div>

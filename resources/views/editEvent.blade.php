@@ -33,7 +33,7 @@
     <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
   </div>
   <div class="btnCreate">
-    <button type="submit" class="btn btn-outline-success" value="Create">Create</button>
+    <button type="submit" class="btn btn-outline-success" value="Create">Editar</button>
   </div>
  
   
