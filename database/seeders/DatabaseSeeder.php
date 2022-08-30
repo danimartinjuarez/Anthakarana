@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -28,5 +28,9 @@ class DatabaseSeeder extends Seeder
         Event::factory()->create(['title' => 'Iniciación en terapias alternativas', 'description' => 'Si necesitas desconectar esta es tu actividad ideal ', 'image' => 'https://mistramitesyrequisitos.com/wp-content/uploads/2020/01/Como-abrir-un-centro-de-terapias-alternativas-1.jpg', 'people' => '30', 'date' => '2022-02-17', 'start_hour' => '10:00']);
 
         Event::factory(0)->create();
+
+        User::factory()->create(['name'=>'admin', 'email'=>'admin@admin.com', 'isAdmin'=>true]);
+        User::factory()->create(['name'=>'user1', 'email'=>'user1@user.com', 'isAdmin'=>false]);
+        
     }
 }
