@@ -32,4 +32,5 @@ Route:: PATCH('/event/{id}', [EventController::class, 'update'])->name('updateEv
 
 Route:: get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
 
-Route:: get('/inscribe/{id}', [EventController::class, 'insribe'])->name('insribeEvent')->middleware('auth');
+Route:: get('/inscribe/{id}', [EventController::class, 'inscribe'])->name('inscribeEvent')->middleware('auth');
+Route:: get('/unscribe/{id}', [EventController::class, 'unscribe'])->name('unscribeEvent')->middleware('auth');

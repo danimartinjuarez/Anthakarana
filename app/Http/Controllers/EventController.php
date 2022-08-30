@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -76,9 +78,17 @@ class EventController extends Controller
 
 
     public function inscribe($id) {
-        $user::User::find(Auth::id());
-        $event::Event::find($id);
+        $user = User::find(Auth::id());
+        $event = Event::find($id);
         $user->event()->attach($event);
+        return redirect()->route('home');
+    }
+
+    public function cancelInscription($id) {
+        $user = User::find(Auth::id());
+        $event = Event::find(Auth::id());
+
+        $user->event()->detach($event);
         return redirect()->route('home');
     }
 
