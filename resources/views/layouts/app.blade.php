@@ -80,7 +80,6 @@
             <main class="py-4">
                 @yield('carousel')
                 @yield('content')
-             
             </main>
 
             <script src="{{ asset('JavaScript/carousel.js') }}" type="text/javascript"></script>

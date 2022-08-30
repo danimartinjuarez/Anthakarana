@@ -35,7 +35,8 @@ class CrudTest extends TestCase
             'description' => 'new description',
             'people' => '15',
             'image' => 'new image',
-            'date' => '2008-06-23 02:11:28'
+            'date' => '2008-06-23 02:11:28',
+            'start_hour'=>'10:00'
         ]);
         $this->assertCount(1, Event::all());
     }
@@ -46,5 +47,12 @@ class CrudTest extends TestCase
         $response= $this->patch(route('updateEvent', $event->id), ['title' => 'new title']);
         $this->assertEquals('new title', Event::first()->title);
         
+    }
+    public function test_a_event_can_be_show() {
+        $this-> withExceptionHandling();
+        $event = Event::factory()->create();
+        $this->assertCount(1, Event::all());
+        $response = $this->get(route('showEvent', $event->id));
+        // $this->assertCount(0, Event::all());
     }
 }
