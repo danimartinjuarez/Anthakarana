@@ -5,6 +5,11 @@
     text-decoration: none;
 }
 
+.btn {
+    color: white;
+    text-decoration: none;
+}
+
 .card {
     height: 475px;
 }

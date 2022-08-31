@@ -52,7 +52,7 @@
                     <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div> -->
-                    <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
+                    <button type="button" class="btn btn-primary" id="asist-button"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
 
                     @if (Auth::check() && Auth::user()->isAdmin)
 
@@ -64,7 +64,7 @@
                         </button>
                         <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                     </form>
-                    @endif 
+                    @endif
                     <a href="{{ route('showEvent', $event->id) }}">👀</a>
                 </div>
             </div>

@@ -86,7 +86,7 @@ class EventController extends Controller
 
     public function cancelInscription($id) {
         $user = User::find(Auth::id());
-        $event = Event::find(Auth::id());
+        $event = Event::find($id);
 
         $user->event()->detach($event);
         return redirect()->route('home');
