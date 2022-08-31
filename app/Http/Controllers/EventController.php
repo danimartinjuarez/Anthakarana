@@ -92,4 +92,9 @@ class EventController extends Controller
         return redirect()->route('home');
     }
 
+    public function myEvents($id) {
+        $events = Event::orderBy('date', 'DESC')->get();
+        return view('myEvents', compact('myEvents'));
+
+}
 }
