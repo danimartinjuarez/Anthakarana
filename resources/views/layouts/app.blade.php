@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <title>ANTHAKARANA</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>ANTHAKARANA</title>
 
-        <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
 
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -25,7 +25,7 @@
 
     <div id="app">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}"><img src="{{url('/img/Logo.png')}}" alt="Logo">ANTHAKARANA</a>
 
@@ -79,13 +79,13 @@
             </div>
         </nav>
 
-            <main class="py-4">
-                @yield('carousel')
-                @yield('content')
-            </main>
+        <main class="py-4">
+            @yield('carousel')
+            @yield('content')
+        </main>
 
-            <script src="{{ asset('JavaScript/carousel.js') }}" type="text/javascript"></script>
-        </div>
-    </body>
+        <script src="{{ asset('JavaScript/carousel.js') }}" type="text/javascript"></script>
+    </div>
+</body>
 
 </html>
