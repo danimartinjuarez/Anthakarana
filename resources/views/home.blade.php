@@ -7,6 +7,7 @@
         <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 @foreach ($events as $event)
+                @if($event->id == 1)
                 <div class="carousel-item active">
                     <div class="col-md-3">
                         <div class="card h-100">
@@ -16,6 +17,18 @@
                         </div>
                     </div>
                 </div>
+                @endif
+                @if($event->id != 1)
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <div class="card-img h-100">
+                                <img src="{{ $event->image }}" class="img-fluid h-100 d-inline-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 @endforeach
             </div>
             <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
@@ -92,7 +105,7 @@
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div> -->
                     <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
-                    <button type="button" class="btn btn-primary buttonAsist" id="asist-button">Asistir</button>
+                    <button type="button" class="btn btn-primary buttonAsist" id="asist-button"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
 
                     @if (Auth::check() && Auth::user()->isAdmin)
 
@@ -104,7 +117,7 @@
                         </button>
                         <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                     </form>
-                    @endif 
+                    @endif
                     
                 </div>
             </div>

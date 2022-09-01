@@ -40,7 +40,10 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        return view('showEvent', compact('event'));
+        $user = User::find(Auth::id());
+        $user->event();
+        $eventsuscribe = $user->event;
+        return view('showEvent', compact('event'), compact('eventsuscribe'));
     }
 
     /**
@@ -86,11 +89,15 @@ class EventController extends Controller
 
     public function cancelInscription($id) {
         $user = User::find(Auth::id());
-        $event = Event::find(Auth::id());
+        $event = Event::find($id);
 
         $user->event()->detach($event);
         return redirect()->route('home');
     }
+    public function eventsSubscribe(){
+        $user = User::find(Auth::id());
+        $user->event();
+        return view('eventssubscribe', compact('user'));
 
-    
+    }
 }

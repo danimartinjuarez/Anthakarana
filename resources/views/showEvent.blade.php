@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+{{ $eventsuscribe }}
+
 
 <div class="card">
 
@@ -25,8 +27,15 @@
       <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
     </div>
 
-    <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
-  </div>
+
+
+
+    <button type="button" class="btn btn-primary"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
+
+    <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', ['id'=>$event->id]) }}">Desinscribirse</a></button>
+
+
+</div>
 
 </div>
 
