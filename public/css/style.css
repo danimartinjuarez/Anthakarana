@@ -6,10 +6,11 @@
 }
 
 .backgroundCarrusel {
-    background-color: blueviolet;
+    background-color: #BDA4EF;
     width: 100vw;
-    height: 11vw;
+    height: 13vw;
     position: absolute;
+    top: 10%;
 }
 
 .carrusel {
