@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 @section('content')
-<form class="justify-content-center col-md-3 m-5" action="{{ route('updateEvent', $event->id ) }}" method="post">
+<form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
   @method('PATCH')
   @csrf
 

@@ -81,7 +81,7 @@
 
 
         <button type="button" class="btn btn-secondary"><a
-                href="{{ route('unscribeEvent', ['id'=>$event->id]) }}">Desinscribirse</a></button>
+                href="{{ route('unscribeEvent', $event->id) }}">Desinscribirse</a></button>
 
 
     </div>
