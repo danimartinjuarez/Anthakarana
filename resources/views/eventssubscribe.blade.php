@@ -17,11 +17,16 @@
                     <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div> -->
-                    <button type="button" class="btn btn-primary" id="asist-button"><a
-                            href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
 
+
+                    @if (Auth::check())
+                    {{$event->pivot->event_id}}
+                    @if ($event->pivot->event_id === $event->id)
+                    <button type="button" class="btn btn-secondary"><a"{{ route('unscribeEvent', ['id'=>$event->id]) }}">Desinscribirse</a></button>
+
+                    @endif
+                    @endif
                     @if (Auth::check() && Auth::user()->isAdmin)
-
                     <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                         @method('delete')
                         @csrf

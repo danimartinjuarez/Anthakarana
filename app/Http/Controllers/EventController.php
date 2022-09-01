@@ -41,9 +41,16 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $user = User::find(Auth::id());
-        $user->event();
-        $eventsuscribe = $user->event;
+        $eventsuscribe= 0;
+        if($user){
+            $user->event();
+            $eventsuscribe = $user->event;
+        }
+        if($eventsuscribe===0){
+        return view('showEvent', compact('event'));
+        }
         return view('showEvent', compact('event'), compact('eventsuscribe'));
+
     }
 
     /**
