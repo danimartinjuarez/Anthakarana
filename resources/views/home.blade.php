@@ -58,7 +58,7 @@
     <div class="row row-cols-1 row-cols-md-4 m-4 gap-4 justify-content-center mx-5">
         @foreach ($events as $event)
         @if ($event->date < (now()) ) <div class="card bg-dark text-white">
-            <img class="card-img img-fluid h-100 w-100 d-flex" src="{{ $event -> image }}" alt="Card image">
+            <img class="card-img img-fluid d-flex" src="{{ $event -> image }}" alt="Card image">
             <div class="card-img-overlay overlay d-flex bg-dark bg-opacity-75">
                 </img>
                 <h3 class="text-white">EVENTO PASADO</h3>
