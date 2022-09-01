@@ -52,7 +52,13 @@
                     <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     </div> -->
-                    <button type="button" class="btn btn-primary" id="asist-button">Asistir</button>
+                    @if(($event -> sub_people)>=($event -> total_people))
+                    <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
+                    @endif
+                    @if(($event -> sub_people)<($event -> total_people))
+                    <button type="button" class="btn btn-primary" onclick="('Evento completo')" id="asist-button"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
+                    
+                    @endif
 
                     @if (Auth::check() && Auth::user()->isAdmin)
 
