@@ -80,16 +80,14 @@
             </div>
 
                 <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    <!-- <div class=""> -->
-                    <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div> -->
-                    @if(($event -> sub_people)>=($event -> total_people))
+                    
+            @if(($event -> sub_people)>=($event -> total_people))
                     <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
                     @endif
-                    @if(($event -> sub_people)<($event -> total_people))
                     <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
-                    <button type="button" class="btn btn-primary buttonAsist" onclick="('Evento completo')" id="asist-button"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></a></button>
+                    @if(($event -> sub_people)<($event -> total_people))
+                    
+                    <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
                     
                     @endif
 
