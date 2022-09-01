@@ -35,3 +35,4 @@ Route::get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
 Route::get('/inscribe/{id}', [EventController::class, 'inscribe'])->name('inscribeEvent')->middleware('auth');
 Route::get('/unscribe/{id}', [EventController::class, 'cancelInscription'])->name('unscribeEvent')->middleware('auth');
 Route::get('/eventssubscribed', [EventController::class, 'eventsSubscribe'])->name('eventssubscribed')->middleware('auth');
+Route::PATCH('/event/{id}', [EventController::class, 'updateCaroousel',])->name('updateCaroousel')->middleware('isadmin', 'auth');;

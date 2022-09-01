@@ -103,4 +103,9 @@ class EventController extends Controller
         $user->event();
         return view('eventssubscribe', compact('user'));
     }
+    public function updateCaroousel(Request $request, $id){
+        $event = request()->except(['_token', '_method']);
+        Event::where('id', '=', $id)->update($event);
+        return redirect()->route('home');
+    }
 }

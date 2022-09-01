@@ -7,6 +7,7 @@
         <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 @foreach ($events as $event)
+                @if ($event->caroousel == true)
                 @if($event->id == 1)
                 <div class="carousel-item active h-75">
                     <div class="col-md-3">
@@ -29,12 +30,16 @@
                     </div>
                 </div>
                 @endif
+                @endif
                 @endforeach
+
             </div>
-            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>
@@ -81,17 +86,25 @@
 
             <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
                 <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
-                <button type="button" class="btn btn-primary text-reset buttonAsist"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
 
                 @if (Auth::check() && Auth::user()->isAdmin)
 
                 <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
+                    <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center"
+                        onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
                         <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                     </button>
                     <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
+                </form>
+                @endif
+                @if (Auth::check() && Auth::user()->isAdmin)
+                <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
+                    @method('PATCH')
+                    @csrf
+                    <button name="caroousel" type="submit" class="btn btn-success" value="1">Añadir a carrusel</button>
+
                 </form>
                 @endif
 

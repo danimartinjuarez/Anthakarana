@@ -16,9 +16,10 @@ class Event extends Model
         'image',
         'date',
         'start_hour',
+        'caroousel',
     ];
     public function user() {
         return $this->belongsToMany(User::class);
-        
+
     }
 }
