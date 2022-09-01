@@ -4,7 +4,23 @@
     color: black;
     text-decoration: none;
 }
-
+.backgroundCarrusel {
+    background-color: blueviolet;
+    width: 100vw;
+    height: 20vw;
+    position: absolute;
+}
+.carrusel {
+    position: relative;
+}
 .card {
     height: 475px;
+}
+.buttonAsist {
+    width: calc(4vw + 4vh);
+  height: calc(1vw + 1vh);
+    text-align: center;
+    font-size: 2vw;
+    
+    
 }

@@ -8,9 +8,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <title>ANTHAKARANA</title>
- 
+
         <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
-        
+
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -55,7 +55,9 @@
                         </li>
                         @endif
                         @else
+                        <a href="{{ route('eventssubscribed') }}" class="nav-link m-4">MIS EVENTOS<img src="{{url('/img/MyEventsButtonIcon.png')}}" alt="Ir a mis eventos"></a>
                         <li class="nav-item dropdown">
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
