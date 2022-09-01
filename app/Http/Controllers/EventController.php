@@ -12,10 +12,9 @@ class EventController extends Controller
 
     public function index()
     {
-
-        $events = Event::orderBy('date', 'DESC')->get();
-        // $events::paginate(5);
-        return view('home', compact('events'));
+        $events = Event::orderBy('date', 'DESC')->paginate(6);
+        $caroousels = Event::orderBy('date', 'DESC')->get();
+        return view('home', compact('events', 'caroousels'));
     }
 
 
@@ -102,5 +101,11 @@ class EventController extends Controller
         $user = User::find(Auth::id());
         $user->event();
         return view('eventssubscribe', compact('user'));
+    }
+    public function updateCaroousel(Request $request, $id)
+    {
+        $event = request()->except(['_token', '_method']);
+        Event::where('id', '=', $id)->update($event);
+        return redirect()->route('home');
     }
 }

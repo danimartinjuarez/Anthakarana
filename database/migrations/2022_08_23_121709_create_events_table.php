@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('date');
             $table->timestamps();
             $table->time('start_hour');
+            $table->boolean('caroousel')->default(false);
         });
     }
 
