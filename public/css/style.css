@@ -4,23 +4,28 @@
     color: black;
     text-decoration: none;
 }
+
 .backgroundCarrusel {
-    background-color: blueviolet;
+    background-color: #BDA4EF;
     width: 100vw;
-    height: 20vw;
+    height: 13vw;
     position: absolute;
+    top: 10%;
 }
+
 .carrusel {
     position: relative;
 }
+
 .card {
     height: 475px;
 }
+
 .buttonAsist {
     width: calc(4vw + 4vh);
-  height: calc(1vw + 1vh);
+    height: calc(1vw + 1vh);
     text-align: center;
     font-size: 2vw;
-    
-    
+
+
 }

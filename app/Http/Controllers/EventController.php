@@ -14,6 +14,7 @@ class EventController extends Controller
     {
 
         $events = Event::orderBy('date', 'DESC')->get();
+        // $events::paginate(5);
         return view('home', compact('events'));
     }
 
@@ -80,24 +81,26 @@ class EventController extends Controller
     }
 
 
-    public function inscribe($id) {
+    public function inscribe($id)
+    {
         $user = User::find(Auth::id());
         $event = Event::find($id);
         $user->event()->attach($event);
         return redirect()->route('home');
     }
 
-    public function cancelInscription($id) {
+    public function cancelInscription($id)
+    {
         $user = User::find(Auth::id());
         $event = Event::find($id);
 
         $user->event()->detach($event);
         return redirect()->route('home');
     }
-    public function eventsSubscribe(){
+    public function eventsSubscribe()
+    {
         $user = User::find(Auth::id());
         $user->event();
         return view('eventssubscribe', compact('user'));
-
     }
 }
