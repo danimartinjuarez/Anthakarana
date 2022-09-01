@@ -58,40 +58,37 @@
     <div class="row row-cols-1 row-cols-md-4 m-4 gap-4 justify-content-center mx-5">
         @foreach ($events as $event)
         @if ($event->date < (now()) ) <div class="card bg-dark text-white">
-            <img class="card-img img-fluid d-flex" src="{{ $event -> image }}" alt="Card image">
-            <div class="card-img-overlay overlay d-flex bg-dark bg-opacity-75">
-                </img>
-                <h3 class="text-white">EVENTO PASADO</h3>
-                <div class="w-75 h-10 d-flex flex-column align-self-end text-white">
+            <a href="{{ route('showEvent', $event->id) }}" class="h-100 text-white"><img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
+                <div class="card-img-overlay card-img-overlay overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75">
+                    <h3 class="text-white">EVENTO PASADO</h3>
                     <h5 class="card-title">{{$event -> title}}</h5>
                     <p class="card-text">{{$event -> date}}</p>
+                    <x-css-info />
                 </div>
-                <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
-                </div>
-            </div>
+            </a>
     </div>
     @endif
     @if ($event->date > (now()))
     <div class="card bg-dark text-white">
-        <img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
-        <div class="card-img-overlay overlay d-flex">
-            </img>
-            <div class=" h-10 d-flex flex-column align-self-end">
+        <a href="{{ route('showEvent', $event->id) }}" class="text-white h-100"><img class="card-img img-fluid h-100 d-flex align-items-end" src="{{ $event -> image }}" alt="Card image"></a>
+        <div class="card-img-overlay overlay h-25 w-100 d-flex justify-content-between sticky-bottom">
 
+            <div class="align-self-center">
                 <h5 class="card-title text-white">{{$event -> title}}</h5>
                 <p class="card-text text-white">{{$event -> date}}</p>
             </div>
 
-            <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
+            <div class=" align-self-center">
+                <a href="{{ route('showEvent', $event->id) }}" class="text-white">
+                    <x-css-info />
+                </a>
 
                 @if (Auth::check() && Auth::user()->isAdmin)
                 <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                     @method('delete')
                     @csrf
                     <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
-                        <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
+                        <img class="erase-img" src="{{url('/img/DeleteButtonIcon.png')}}">
                     </button>
                     <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                 </form>
