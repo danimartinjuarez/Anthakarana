@@ -12,10 +12,9 @@ class EventController extends Controller
 
     public function index()
     {
-
-        $events = Event::orderBy('date', 'DESC')->get();
-        // $events::paginate(5);
-        return view('home', compact('events'));
+        $events = Event::orderBy('date', 'DESC')->paginate(6);
+        $caroousel = Event::all();
+        return view('home', compact('events', 'caroousel'));
     }
 
 

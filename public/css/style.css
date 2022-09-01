@@ -20,12 +20,3 @@
 .card {
     height: 475px;
 }
-
-.buttonAsist {
-    width: calc(4vw + 4vh);
-    height: calc(1vw + 1vh);
-    text-align: center;
-    font-size: 2vw;
-
-
-}

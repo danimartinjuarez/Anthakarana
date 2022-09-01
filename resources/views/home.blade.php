@@ -6,24 +6,24 @@
     <div class="row mx-auto my-auto justify-content-center">
         <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                @foreach ($events as $event)
-                @if($event->id == 1)
+                @foreach ($caroousel as $caroousels)
+                @if($caroousels->id == 1)
                 <div class="carousel-item active h-75">
                     <div class="col-md-3">
                         <div class="card h-100">
                             <div class="card-img h-100">
-                                <img src="{{ $event->image }}" class="img-fluid h-100 d-inline-flex">
+                                <img src="{{ $caroousels->image }}" class="img-fluid h-100 d-inline-flex">
                             </div>
                         </div>
                     </div>
                 </div>
                 @endif
-                @if($event->id != 1)
+                @if($caroousels->id != 1)
                 <div class="carousel-item">
                     <div class="col-md-3">
                         <div class="card h-100">
                             <div class="card-img h-100">
-                                <img src="{{ $event->image }}" class="img-fluid h-100 d-inline-flex">
+                                <img src="{{ $caroousels->image }}" class="img-fluid h-100 d-inline-flex">
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
 
             <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
                 <a href="{{ route('showEvent', $event->id) }}" class="text-white">Ver</a>
-                <button type="button" class="btn btn-primary text-reset buttonAsist"><a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
+                <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary text-white buttonAsist">Asistir</button></a>
 
                 @if (Auth::check() && Auth::user()->isAdmin)
 
@@ -94,13 +94,14 @@
                     <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
                 </form>
                 @endif
-
             </div>
         </div>
     </div>
     @endif
-
     @endforeach
+    <div class="d-flex justify-content-center">
+        {!! $events->links() !!}
+    </div>
 </div>
 </div>
 @endsection
