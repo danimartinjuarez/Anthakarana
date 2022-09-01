@@ -47,7 +47,7 @@
 @endsection('carousel')
 @section('content')
 <div class="container">
-    <div class="row-cols-1 row-cols-md-3">
+    <div class="container row row-cols-1 row-cols-md-3">
         @if (Auth::check() && Auth::user()->isAdmin)
         <a class=" d-inline-flex justify-content-center gap-2 link-unstyled" href="{{route ('createEvent')}}">
             <p>New Event</p>
