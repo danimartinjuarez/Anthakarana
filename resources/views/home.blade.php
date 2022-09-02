@@ -53,6 +53,59 @@
             <h5>New Event</h5>
             <img class="erase-img" src=" {{url('/img/AddEventButton.png')}}">
         </a>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+NUEVO EVENTO</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="justify-content-center col-md-3 m-5" action="{{ route('storeEvent') }}" method="post">
+  @csrf
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Description</label>
+    <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">People</label>
+    <input type="number" name="total_people" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Image</label>
+    <input type="text" name="image" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Date</label>
+    <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Start Hour</label>
+    <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+  <div class="float-right">
+    <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
+  </div>
+  <div class="btnCreate">
+    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">Create</button>
+  </div>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
         @endif
     </div>
     <div class="row row-cols-1 row-cols-md-4 m-4 gap-4 justify-content-center mx-5">
