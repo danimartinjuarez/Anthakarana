@@ -61,12 +61,12 @@
                         <li class="nav-item dropdown">
                             @endif
                             @else
-                            <a href="{{ url('/') }}" id="homelink" class="nav-link m-4 log-out">HOME<img src="{{url('/img/HomeButtonIcon.png')}}" class="img-fluid" alt="Ir a pagina principal"></a>
-                            <a href="{{ route('eventssubscribed') }}" id="misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS<img src="{{url('/img/MyEventsButtonIcon.png')}}" alt="Ir a mis eventos"></a>
+                            <a href="{{ url('/') }}" id="homelink" class="nav-link m-4 log-out">HOME</a>
+                            <a href="{{ route('eventssubscribed') }}" id="misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS</a>
 
                         <li class="nav-item dropdown">
 
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" img src="{{url('/img/LogoutButtonicon.png')}}" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle m-4" img src="{{url('/img/LogoutButtonicon.png')}}" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -87,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="my-4">
             @yield('carousel')
             @yield('content')
         </main>

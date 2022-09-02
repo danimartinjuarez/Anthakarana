@@ -131,7 +131,7 @@
           <p class="card-text text-white" id="info">{{$event -> date}}</p>
         </div>
 
-        <div class="align-self-center me-3 py-2">
+        <div class="align-self-center d-flex flex-column align-items-center justify-content-center me-3 py-2">
           <a href="{{ route('showEvent', $event->id) }}" class="text-white">
             <x-css-info />
           </a>
@@ -142,10 +142,10 @@
             @foreach ( $caroousels as $caroouselevent)
             @if ($caroouselevent->id == $event->id)
             @if ($caroouselevent->caroousel == true)
-            <button name="caroousel" type="submit" class="btn btn-info" value="0">no mostrar</button>
+            <button name="caroousel" type="submit" class="btn btn-info" value="0">No destacar</button>
             @endif
             @if ($caroouselevent->caroousel == false)
-            <button name="caroousel" type="submit" class="btn btn-info" value="1">mostrar</button>
+            <button name="caroousel" type="submit" class="btn btn-info" value="1">Destacar</button>
             @endif
             @endif
             @endforeach
