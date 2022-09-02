@@ -70,7 +70,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">People</label>
-    <input type="text" name="total_people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
+    <input type="number" name="total_people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Image</label>
