@@ -32,6 +32,15 @@
                         <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                     </button>
                     <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
+
+                    @if(($event -> sub_people)>=($event -> total_people))
+                    <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
+                    @endif
+                    @if(($event -> sub_people)<($event -> total_people))
+
+                        <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+
+                        @endif
                 </form>
 
 
@@ -81,7 +90,7 @@
 
 
         <button type="button" class="btn btn-secondary"><a
-                href="{{ route('unscribeEvent', $event->id) }}">Desinscribirse</a></button>
+                href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
 
 
     </div>
@@ -121,10 +130,15 @@
 
 
 
-        <button type="button" class="btn btn-primary"><a
-                href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
-
-
+        @if(($event -> sub_people)>=($event -> total_people))
+                    <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
+                    @endif
+                   
+                    @if(($event -> sub_people)<($event -> total_people))
+                    
+                    <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+                    
+                    @endif
 
     </div>
 

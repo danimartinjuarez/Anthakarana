@@ -13,16 +13,12 @@
                 </div>
 
                 <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    <!-- <div class=""> -->
-                    <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div> -->
-
-
+                    
+                    <a href="{{ route('showEvent', $event->id) }}" class="text-white"><x-css-info /></a>
                     @if (Auth::check())
-                    {{$event->pivot->event_id}}
+
                     @if ($event->pivot->event_id === $event->id)
-                    <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}">Desinscribirse</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{ $event->name }}')">Desinscribirse</a></button>
 
                     @endif
                     @endif
@@ -30,13 +26,13 @@
                     <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
                         @method('delete')
                         @csrf
-                        <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
+                        <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{ $event->name }}')">
                             <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                         </button>
-                        <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
+                       
                     </form>
                     @endif
-                    <a href="{{ route('showEvent', $event->id) }}">👀</a>
+                    
                 </div>
             </div>
         </div>

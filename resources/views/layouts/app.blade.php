@@ -27,7 +27,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{url('/img/Logo.png')}}" alt="Logo">ANTHAKARANA</a>
+                <a class="navbar-brand title" href="{{ url('/') }}"><img src="{{url('/img/Logo.png')}}" alt="Logo">ANTHAKARANA</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
+
+                        <li class="nav-item dropdown">
                         @endif
                         @else
                         <a href="{{ url('/') }}" id = "homelink" class="nav-link m-4 log-out">HOME<img src="{{url('/img/HomeButtonIcon.png')}}" class="img-fluid" alt="Ir a pagina principal"></a>

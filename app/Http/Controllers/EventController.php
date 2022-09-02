@@ -91,8 +91,17 @@ class EventController extends Controller
     {
         $user = User::find(Auth::id());
         $event = Event::find($id);
+        $user->event();
+        foreach ($user->event as $eventInscribed){
+            if($eventInscribed->pivot->event_id == $id){
+                return redirect()->route('home');
+            }
+        }
         $user->event()->attach($event);
-        return redirect()->route('home');
+        $event->sub_people += 1;
+        $event->save();
+
+        return redirect()->route('eventssubscribed');
     }
 
     public function cancelInscription($id)
@@ -100,7 +109,15 @@ class EventController extends Controller
         $user = User::find(Auth::id());
         $event = Event::find($id);
 
-        $user->event()->detach($event);
+        $user->event();
+        foreach ($user->event as $eventInscribed){
+            if($eventInscribed->pivot->event_id == $id){
+                $user->event()->detach($event);
+                $event->sub_people -= 1;
+                $event->save();
+                return redirect()->route('eventssubscribed');
+            }
+        }
         return redirect()->route('home');
     }
     public function eventsSubscribe()
