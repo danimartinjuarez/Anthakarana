@@ -119,7 +119,7 @@
           <x-css-info />
         </div>
       </a>
-  </div>
+ 
   @endif
   @if ($event->date > (now()))
   <div class="card bg-dark text-white">
