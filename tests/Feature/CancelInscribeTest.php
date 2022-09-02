@@ -10,7 +10,7 @@ use App\Models\User;
 
 use function PHPUnit\Framework\isFalse;
 
-class inscribeTest extends TestCase
+class CancelInscribe extends TestCase
 {
     /**
      * A basic feature test example.
@@ -19,17 +19,17 @@ class inscribeTest extends TestCase
      *
      */
     use RefreshDatabase;
-    public function test_inscribe_in_event(){
-        $this->withExceptionHandling();
+    public  function test_a_event_can_be_cancel_inscription() {
+        $this-> withExceptionHandling();
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
         $userNoAdmin = User::factory()->create(['isAdmin'=>false]);
         $this->actingAs($userNoAdmin);
-        $eventPlaces=Event::first()->sub_people;
         $response = $this->get(route('inscribeEvent', $event->id));
-        $this->assertEquals($eventPlaces +1, Event::first()->sub_people);
+        $eventPlaces=Event::first()->sub_people;
+        $response= $this->get(route('unscribeEvent',$event->id));
+        $this->assertEquals($eventPlaces -1, Event::first()->sub_people);
 
-
+        // $this->assertCount(0, Event::all());
     }
-
 }

@@ -16,7 +16,7 @@ class CrudTest extends TestCase
      * A basic feature test example.
      *
      * @return void
-     * 
+     *
      */
     use RefreshDatabase;
 
@@ -45,7 +45,7 @@ class CrudTest extends TestCase
         $this->actingAs($userAdmin);
         $response = $this->delete(route('delete', $event->id));
         $this->assertCount(0, Event::all());
-        
+
     }
 
     public function test_a_event_can_be_create() {
@@ -65,7 +65,7 @@ class CrudTest extends TestCase
 
             $userNoAdmin = User::factory()->create(['isAdmin'=>false]);
             $this->actingAs($userNoAdmin);
-    
+
             $response = $this->post(route('storeEvent'), [
                 'title' => 'new title',
                 'description' => 'new description',
@@ -93,12 +93,12 @@ class CrudTest extends TestCase
         $response= $this->patch(route('eventupdate', $event->id), ['title' => 'new title']);
         $this->assertEquals('new title', Event::first()->title);
     }
-    public function test_a_event_can_be_show() {
+   public  function test_a_event_can_be_show() {
         $this-> withExceptionHandling();
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
         $response = $this->get(route('showEvent', $event->id));
-        // $this->assertCount(0, Event::all());
+        $response->assertSee($event->title);
     }
 
 
