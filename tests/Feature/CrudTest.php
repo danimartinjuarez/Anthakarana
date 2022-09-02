@@ -84,13 +84,13 @@ class CrudTest extends TestCase
         $userAdmin = User::factory()->create(['isAdmin'=>true]);
         $this->actingAs($userAdmin);
 
-        $response= $this->patch(route('updateEvent', $event->id), ['title' => 'new title']);
+        $response= $this->patch(route('eventupdate', $event->id), ['title' => 'new title']);
         $this->assertEquals('new title', Event::first()->title);
 
         $userNoAdmin = User::factory()->create(['isAdmin'=>false]);
         $this->actingAs($userNoAdmin);
 
-        $response= $this->patch(route('updateEvent', $event->id), ['title' => 'new title']);
+        $response= $this->patch(route('eventupdate', $event->id), ['title' => 'new title']);
         $this->assertEquals('new title', Event::first()->title);
     }
     public function test_a_event_can_be_show() {
