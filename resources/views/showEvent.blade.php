@@ -31,9 +31,7 @@
                     <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
                         <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                     </button>
-                    <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
-
-                    @if(($event -> sub_people)>=($event -> total_people))
+                     @if(($event -> sub_people)>=($event -> total_people))
                     <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
                     @endif
                     @if(($event -> sub_people)<($event -> total_people))
@@ -42,6 +40,65 @@
 
                         @endif
                 </form>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
+  @method('PATCH')
+  @csrf
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ $event -> title }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Description</label>
+    <input type="text" name="description" class="form-control" id="exampleFormControlInput1" value="{{ $event -> description }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">People</label>
+    <input type="text" name="total_people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Image</label>
+    <input type="text" name="image" class="form-control" id="exampleFormControlInput1" value="{{ $event -> image }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Date</label>
+    <input type="date" name="date" class="form-control" id="exampleFormControlInput1" value="{{ $event -> date }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Start Hour</label>
+    <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
+  </div>
+
+  <div class="float-right">
+    <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
+  </div>
+  <div class="btnCreate">
+    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}} -ID {{ $event -> id }}')">Editar</button>
+  </div>
+
+
+</form>
+
+   
+  </div>
+</div>
+                   
 
 
 
