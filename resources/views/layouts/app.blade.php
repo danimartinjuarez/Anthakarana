@@ -61,8 +61,9 @@
                             @endif
                             @else
                             <a href="{{ url('/') }}" id="homelink" class="nav-link m-4 log-out">HOME</a>
+                            @if (Route::has('register') && Auth::user()->isAdmin === false)
                             <a href="{{ route('eventssubscribed') }}" id="misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS</a>
-
+                            @endif
                         <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown m-4" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
