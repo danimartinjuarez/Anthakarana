@@ -10,7 +10,7 @@ use App\Models\User;
 
 use function PHPUnit\Framework\isFalse;
 
-class inscribeTest extends TestCase
+class ShowEventsInSubscribed extends TestCase
 {
     /**
      * A basic feature test example.
@@ -19,17 +19,16 @@ class inscribeTest extends TestCase
      *
      */
     use RefreshDatabase;
-    public function test_inscribe_in_event(){
-        $this->withExceptionHandling();
+    public  function test_a_event_can_be_show_in_EventsSuscribe() {
+        $this-> withExceptionHandling();
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
         $userNoAdmin = User::factory()->create(['isAdmin'=>false]);
         $this->actingAs($userNoAdmin);
-        $eventPlaces=Event::first()->sub_people;
         $response = $this->get(route('inscribeEvent', $event->id));
-        $this->assertEquals($eventPlaces +1, Event::first()->sub_people);
+        $response= $this->get(route('eventssubscribed',$event->id));
+        $response->assertSee($event->title);
 
-
+        // $this->assertCount(0, Event::all());
     }
-
 }
