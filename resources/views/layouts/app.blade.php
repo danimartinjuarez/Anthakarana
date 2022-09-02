@@ -40,10 +40,13 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto log-out">
+                        
+                        
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
@@ -57,20 +60,19 @@
                         <li class="nav-item dropdown">
                         @endif
                         @else
-
+                        <a href="{{ url('/') }}" id = "homelink" class="nav-link m-4 log-out">HOME<img src="{{url('/img/HomeButtonIcon.png')}}" class="img-fluid" alt="Ir a pagina principal"></a>
+                        <a href="{{ route('eventssubscribed') }}" id = "misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS<img src="{{url('/img/MyEventsButtonIcon.png')}}" alt="Ir a mis eventos"></a>
                         
-                        @if (Auth::check())
-                        <a href="{{ route('eventssubscribed') }}" class="nav-link m-4">MIS EVENTOS<img src="{{url('/img/MyEventsButtonIcon.png')}}" alt="Ir a mis eventos"></a>
+                        <li class="nav-item dropdown">
 
-
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" img src="{{url('/img/LogoutButtonicon.png')}}" alt= "Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log Out
+                                    <img src="{{url('/img/LogoutButtonicon.png')}}" alt= "Salir de la aplicacion">
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -78,7 +80,6 @@
                                 </form>
                             </div>
                         </li>
-                        @endif
                         @endguest
                     </ul>
                 </div>
