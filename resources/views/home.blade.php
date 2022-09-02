@@ -71,41 +71,32 @@
     @if ($event->date > (now()))
     <div class="card bg-dark text-white">
         <a href="{{ route('showEvent', $event->id) }}" class="text-white h-100"><img class="card-img img-fluid h-100 d-flex align-items-end" src="{{ $event -> image }}" alt="Card image"></a>
-        <div class="card-img-overlay overlay h-25 w-100 d-flex justify-content-between sticky-bottom">
+        <div class="card-img-overlay overlay h-25 w-100 d-flex justify-content-between">
 
             <div class="align-self-center">
                 <h5 class="card-title text-white">{{$event -> title}}</h5>
                 <p class="card-text text-white">{{$event -> date}}</p>
             </div>
-            
-            
+
+            <div class="align-self-center">
                 <a href="{{ route('showEvent', $event->id) }}" class="text-white">
                     <x-css-info />
                 </a>
 
-                <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    
-            @if(($event -> sub_people)>=($event -> total_people))
-                    <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
-                    @endif
-                   
-                    @if(($event -> sub_people)<($event -> total_people))
-                    
-                    <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
-                    
-                    @endif
+ 
 
-                @if (Auth::check() && Auth::user()->isAdmin)
+                        @if (Auth::check() && Auth::user()->isAdmin)
 
-                <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
-                    @method('delete')
-                    @csrf
-                    <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
-                        <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
-                    </button>
-                    <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
-                </form>
-                @endif
+                        <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
+                                <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
+                            </button>
+                            <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
+                        </form>
+                        @endif
+                
                 @if (Auth::check() && Auth::user()->isAdmin)
                 <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
                     @method('PATCH')
