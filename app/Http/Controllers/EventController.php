@@ -18,10 +18,7 @@ class EventController extends Controller
     }
 
 
-    public function create()
-    {
-        return view('createEvent');
-    }
+    
 
 
     public function store(Request $request)
@@ -59,11 +56,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $event = Event::find($id);
-        return view('editEvent', compact('event'));
-    }
+    
 
 
     public function update(Request $request, $id)

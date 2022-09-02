@@ -49,13 +49,13 @@
 <div class="container">
     <div class="container row row-cols-1 row-cols-md-3">
         @if (Auth::check() && Auth::user()->isAdmin)
-        <a class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" href="{{route ('createEvent')}}">
+        <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal" data-target="#exampleModal"">
             <h5>New Event</h5>
             <img class="erase-img" src=" {{url('/img/AddEventButton.png')}}">
-        </a>
+</div>
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-NUEVO EVENTO</button>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -146,7 +146,7 @@ NUEVO EVENTO</button>
                             <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
                                 <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
                             </button>
-                            <a href="{{ route('editEvent', ['id'=>$event->id]) }}">Editar</a>
+                            
                         </form>
                         @endif
                 
