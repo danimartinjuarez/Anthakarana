@@ -21,3 +21,19 @@
 .card {
     height: 475px;
 }
+
+@media(max-widht: 320px) {
+    
+    log-out{
+        width: 200px;
+        height: 200px;
+        
+    }
+    a img{
+        width: 50px;
+    }
+    #misEventosLink{
+        display: none;
+    }
+
+    }
