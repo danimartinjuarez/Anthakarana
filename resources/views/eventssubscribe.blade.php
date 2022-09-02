@@ -20,9 +20,9 @@
 
 
                     @if (Auth::check())
-                    {{$event->pivot->event_id}}
+
                     @if ($event->pivot->event_id === $event->id)
-                    <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}">Desinscribirse</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
 
                     @endif
                     @endif

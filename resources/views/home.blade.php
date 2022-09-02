@@ -83,7 +83,7 @@
                     <x-css-info />
                 </a>
 
-                
+
                 @if (Auth::check() && Auth::user()->isAdmin)
                 <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
                     @method('PATCH')

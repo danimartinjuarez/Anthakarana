@@ -33,7 +33,7 @@
     <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
   </div>
   <div class="btnCreate">
-    <button type="submit" class="btn btn-outline-success" value="Create">Editar</button>
+    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}} -ID {{ $event -> id }}')">Editar</button>
   </div>
 
 

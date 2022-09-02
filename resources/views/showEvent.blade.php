@@ -81,7 +81,7 @@
 
 
         <button type="button" class="btn btn-secondary"><a
-                href="{{ route('unscribeEvent', $event->id) }}">Desinscribirse</a></button>
+                href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
 
 
     </div>
@@ -122,7 +122,7 @@
 
 
         <button type="button" class="btn btn-primary"><a
-                href="{{ route('inscribeEvent', ['id'=>$event->id]) }}">Asistir</a></button>
+                href="{{ route('inscribeEvent', ['id'=>$event->id]) }}" onclick="return confirm('¿Estás seguro de querer apuntarse a este evento? {{$event->name}} -ID {{ $event -> id }}')">Asistir</a></button>
 
 
 

@@ -30,7 +30,7 @@
     <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
   </div>
   <div class="btnCreate">
-    <button type="submit" class="btn btn-outline-success" value="Create">Create</button>
+    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">Create</button>
   </div>
 </form>
 @endsection
