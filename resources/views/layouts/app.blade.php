@@ -43,7 +43,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto log-out">
 
-
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -66,20 +65,20 @@
 
                         <li class="nav-item dropdown">
 
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle m-4" img src="{{url('/img/LogoutButtonicon.png')}}" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown m-4" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Log Out
-                                    <img src="{{url('/img/LogoutButtonicon.png')}}" alt="Salir de la aplicacion">
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown m-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">LOGOUT
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="m-4">
+                                @csrf
+                            </form>
+                        </li>
                         </li>
                         @endguest
                     </ul>
