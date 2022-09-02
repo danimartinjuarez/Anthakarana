@@ -13,11 +13,7 @@
                 </div>
 
                 <div class="w-25 h-15 d-flex flex-column align-self-end align-items-end">
-                    <!-- <div class=""> -->
-                    <!-- <label class="form-check-label" for="flexCheckDefault">Carrusel</label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div> -->
-
+                    
                     <a href="{{ route('showEvent', $event->id) }}" class="text-white"><x-css-info /></a>
                     @if (Auth::check())
 

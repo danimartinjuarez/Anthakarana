@@ -60,9 +60,9 @@
         @if ($event->date < (now()) ) <div class="card bg-dark text-white">
             <a href="{{ route('showEvent', $event->id) }}" class="h-100 text-white"><img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
                 <div class="card-img-overlay card-img-overlay overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75">
-                    <h3 class="text-white">EVENTO PASADO</h3>
-                    <h5 class="card-title">{{$event -> title}}</h5>
-                    <p class="card-text">{{$event -> date}}</p>
+                    <p class="text-white" id="subtitle" >EVENTO PASADO</p>
+                    <p class="card-title info">{{$event -> title}}</p>
+                    <p class="card-text info">{{$event -> date}}</p>
                     <x-css-info />
                 </div>
             </a>
@@ -74,7 +74,7 @@
         <div class="card-img-overlay overlay h-25 w-100 d-flex justify-content-between">
 
             <div class="align-self-center">
-                <h5 class="card-title text-white">{{$event -> title}}</h5>
+                <p class="card-title text-white">{{$event -> title}}</p>
                 <p class="card-text text-white">{{$event -> date}}</p>
             </div>
 
