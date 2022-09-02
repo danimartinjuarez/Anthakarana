@@ -11,6 +11,7 @@
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
     display: flex;
+    gap: 1vw;
 }
 
 /* medium and up screens */

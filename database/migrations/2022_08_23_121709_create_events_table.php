@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title', 150);
             $table->integer('total_people');
             $table->integer('sub_people')->default(0);
-            $table->string('description');
+            $table->string('description', 255);
             $table->string('image');
             $table->date('date');
             $table->timestamps();
