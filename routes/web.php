@@ -21,14 +21,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 
-Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete')->middleware('isadmin', 'auth');;
+Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete')->middleware('isadmin', 'auth');
 
-Route::get('/create', [EventController::class, 'create'])->name('createEvent')->middleware('isadmin', 'auth');;
-Route::post('/store', [EventController::class, 'store'])->name('storeEvent')->middleware('isadmin', 'auth');;
+Route::get('/create', [EventController::class, 'create'])->name('createEvent')->middleware('isadmin', 'auth');
+Route::post('/store', [EventController::class, 'store'])->name('storeEvent')->middleware('isadmin', 'auth');
 
-Route::get('/edit/{id}', [EventController::class, 'edit'])->name('editEvent')->middleware('isadmin', 'auth');;
+Route::get('/edit/{id}', [EventController::class, 'edit'])->name('editEvent')->middleware('isadmin', 'auth');
 
-Route::PATCH('/event/{id}', [EventController::class, 'update'])->name('updateEvent')->middleware('isadmin', 'auth');;
+Route::patch('/update/{id}', [EventController::class, 'update'])->middleware('isadmin', 'auth')->name('eventupdate');
 
 Route::get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
 

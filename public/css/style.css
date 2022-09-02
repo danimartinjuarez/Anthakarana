@@ -8,7 +8,8 @@
 .backgroundCarrusel {
     background-color: #BDA4EF;
     width: 100vw;
-    height: 13vw;
+    height: 20%;
+    max-height: 320px;
     position: absolute;
     top: 10%;
 }
