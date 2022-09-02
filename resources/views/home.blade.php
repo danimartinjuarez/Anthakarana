@@ -138,17 +138,7 @@
 
  
 
-                        @if (Auth::check() && Auth::user()->isAdmin)
-
-                        <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center" onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
-                                <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
-                            </button>
-                            
-                        </form>
-                        @endif
+                        
                 
                 @if (Auth::check() && Auth::user()->isAdmin)
                 <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
