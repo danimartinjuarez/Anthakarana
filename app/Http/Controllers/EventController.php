@@ -101,7 +101,7 @@ class EventController extends Controller
         $event->sub_people += 1;
         $event->save();
 
-        return redirect()->route('home');
+        return redirect()->route('eventssubscribed');
     }
 
     public function cancelInscription($id)
@@ -115,7 +115,7 @@ class EventController extends Controller
                 $user->event()->detach($event);
                 $event->sub_people -= 1;
                 $event->save();
-                return redirect()->route('home');
+                return redirect()->route('eventssubscribed');
             }
         }
         return redirect()->route('home');
