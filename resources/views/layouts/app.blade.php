@@ -40,10 +40,13 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto gap-3">
+                        
+                        
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
@@ -55,7 +58,9 @@
                         </li>
                         @endif
                         @else
+                        <a href="{{ url('/') }}" class="nav-link m-4">HOME<img src="{{url('/img/HomeButtonIcon.png')}}" alt="Ir a pagina principal"></a>
                         <a href="{{ route('eventssubscribed') }}" class="nav-link m-4">MIS EVENTOS<img src="{{url('/img/MyEventsButtonIcon.png')}}" alt="Ir a mis eventos"></a>
+                        
                         <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
