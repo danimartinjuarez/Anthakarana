@@ -125,8 +125,11 @@
       @endif
       @if ($event->date > (now()))
       <div class="card bg-dark text-white">
-        <a href="{{ route('showEvent', $event->id) }}" class="text-white h-100"><img class="card-img img-fluid h-100" src="{{ $event -> image }}" alt="Card image"></a>
+        <img class="card-img img-fluid h-100" src="{{ $event -> image }}" alt="Card image">
         <div class="card-img-overlay overlay h-100 w-100 d-flex justify-content-between ">
+          <a href="{{ route('showEvent', $event->id) }}" class="text-white">
+            <x-css-info />
+          </a>
           <div class="bg-card">
             <div class="align-self-center ms-3 py-2">
               <p class="card-title text-white" id="info">{{$event -> title}}</p>
@@ -134,9 +137,7 @@
             </div>
 
             <div class="align-self-center d-flex flex-column align-items-center justify-content-center me-3 py-2">
-              <a href="{{ route('showEvent', $event->id) }}" class="text-white">
-                <x-css-info />
-              </a>
+
               @if (Auth::check() && Auth::user()->isAdmin)
               <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
                 @method('PATCH')
