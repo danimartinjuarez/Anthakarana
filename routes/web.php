@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersControler;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,6 @@ Route::get('/show/{id}', [EventController::class, 'show'])->name('showEvent');
 Route::get('/inscribe/{id}', [EventController::class, 'inscribe'])->name('inscribeEvent')->middleware('auth');
 Route::get('/unscribe/{id}', [EventController::class, 'cancelInscription'])->name('unscribeEvent')->middleware('auth');
 Route::get('/eventssubscribed', [EventController::class, 'eventsSubscribe'])->name('eventssubscribed')->middleware('auth');
-Route::PATCH('/event/{id}', [EventController::class, 'updateCaroousel',])->name('updateCaroousel')->middleware('isadmin', 'auth');;
+Route::PATCH('/event/{id}', [EventController::class, 'updateCaroousel',])->name('updateCaroousel')->middleware('isadmin', 'auth');
+Route::get('indexUsers', [UsersControler::class, 'index'])->name('indexUsers')->middleware('isadmin', 'auth');
+Route::delete('/deleteUser/{id}', [UsersControler::class, 'destroy'])->name('deleteUser')->middleware('isadmin', 'auth');

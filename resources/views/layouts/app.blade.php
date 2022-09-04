@@ -64,6 +64,9 @@
                             @if (Route::has('register') && Auth::user()->isAdmin === false)
                             <a href="{{ route('eventssubscribed') }}" id="misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS</a>
                             @endif
+                            @if (Route::has('register') && Auth::user()->isAdmin)
+                            <a href="{{ route('indexUsers') }}" id="misEventosLink" class="nav-link m-4 log-out">USUARIOS</a>
+                            @endif
                         <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown m-4" alt="Salir de la aplicacion" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
