@@ -49,11 +49,12 @@
 <div class="container">
   <div class="container row row-cols-1 row-cols-md-3">
     @if (Auth::check() && Auth::user()->isAdmin)
+        <!-- Button trigger modal -->
+
     <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal" data-target="#exampleModal"">
             <h5>New Event</h5>
             <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">
     </div>
-    <!-- Button trigger modal -->
 
 
 
@@ -119,7 +120,7 @@
           <x-css-info />
         </div>
       </a>
- 
+
   @endif
   @if ($event->date > (now()))
   <div class="card bg-dark text-white">
