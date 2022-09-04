@@ -91,39 +91,5 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</div>
 </body>
-<footer>
-	<div class="grid-layout">
-		<div class="caja-logo">
-			<img class="logo-footer" src="{{url('/img/arinojologo2.png')}}" alt="logo Arinojo" />
-		</div>
-		<div class="caja-horario">
-			<h3 style="color: rgb(250, 48, 48);">HORARIO</h3>
-			<div class="horario">
-				<ul>
-					<li>Lunes a Viernes 9h a 20h</li>
-					<li>Sábado y Domingo 13h a 20h</li>
-				</ul>
-			</div>
-		</div>
-		<div class="caja-mapa">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.2856026649556!2d-5.689064884167119!3d43.308280382683165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd365fc655555555%3A0x4f84ace831bb12f6!2sCiudad%20Industrial%20Valle%20Del%20Nal%C3%B3n%20Valnalon!5e0!3m2!1ses!2ses!4v1662302774621!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-		<div class="caja-siguenos">
-			<h3 style="color: rgb(250, 48, 48);">SIGUENOS</h3>
-			<div class="img-footer" style="padding-left: 5px;">
-				<a href="https://www.facebook.com/">
-					<img src="https://cdn-icons-png.flaticon.com/128/747/747374.png" alt="icono facebook"></a>
-				<a href="https://www.instagram.com/">
-					<img src="https://cdn-icons-png.flaticon.com/128/725/725339.png" alt="icono Instagram"></a>
-			</div>
-		</div>
-		<br>
-		<div class="caja-copyright">
-			<small>© ARI NOJO 2022 - Todos los Derechos Reservados<br>
-				C/ Hornos Altos s/n - 33930 Langreo, Asturias
-			</small>
-		</div>
-	</div>
-</footer>
 
 </html>

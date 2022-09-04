@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Karma:wght@300&family=Lato:wght@700&display=swap');
 
+body {
+	width: 100vw;
+	min-height: 100vh;
+	text-rendering: optimizeLegibility;
+}
+
 #title {
 	font-family: 'Lato', sans-serif;
 	font-size: clamp(1rem 2.5vw 4rem);
@@ -56,9 +62,9 @@
 }
 
 footer {
-	padding: 5px;
+	font-family: 'Karma', serif;
 	text-align: center;
-	background-color: #bda4efaa;
+	background-color: #8f73cc7e;
 }
 
 footer div {
