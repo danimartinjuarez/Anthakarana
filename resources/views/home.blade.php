@@ -50,7 +50,7 @@
   <div class="container row row-cols-1 row-cols-md-3">
     @if (Auth::check() && Auth::user()->isAdmin)
     <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal" data-target="#exampleModal"">
-            <h5>New Event</h5>
+            <h5>Añadir Evento</h5>
             <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">
     </div>
     <!-- Button trigger modal -->
@@ -61,8 +61,10 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <div class="modal-header p-3 mb-2 bg-warning text-dark">
+          <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">  
+          <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVO EVENTO</h5>
+            
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -71,34 +73,35 @@
             <form class="justify-content-center col-md-3 m-5" action="{{ route('storeEvent') }}" method="post">
               @csrf
               <div class="form-group">
-                <label for="exampleFormControlInput1">Name</label>
+                <label for="exampleFormControlInput1">Nombre del Evento</label>
                 <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Description</label>
+                <label for="exampleFormControlInput1">Descripción</label>
                 <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">People</label>
+                <label for="exampleFormControlInput1">Número de Plazas</label>
                 <input type="number" name="total_people" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Image</label>
+                <label for="exampleFormControlInput1">URL Imagen</label>
                 <input type="text" name="image" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Date</label>
+                <label for="exampleFormControlInput1">Fecha del Evento</label>
                 <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Start Hour</label>
+                <label for="exampleFormControlInput1">Hora del Evento</label>
                 <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
-              </div>
-              <div class="btnCreate">
-                <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">Create</button>
+              <div class="d-flex justify-content-between p-4">
+              <!-- <div class="btnCreate"> -->
+                <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">CREAR</button>
+              <!-- </div> -->
+              <!-- <div class=""> -->
+                <a class="btn btn-primary" href="{{ route('home') }}">CANCELAR</a>
               </div>
             </form>
           </div>
