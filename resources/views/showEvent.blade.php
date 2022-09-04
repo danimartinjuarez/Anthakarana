@@ -129,38 +129,8 @@
 @foreach ($eventsuscribe as $eventsubcribed )
 @if ($event->id == $eventsubcribed->pivot->event_id)
 @section('content')
-<div class="card">
-
-	<div class="card-img-overlay">
-		<h5 class="card-title">Evento:</h5>
-		<p class="card-title">{{$event -> title}}</p>
-		<h5 class="card-title">Descripción:</h5>
-		<p class="card-text">{{ $event -> description }}</p>
-		<h5 class="card-title">Comienzo:</h5>
-		<div class="d-flex gap-5">
-			<h5 class="card-title">Fecha Inicio:</h5>
-			<h5 class="card-title">Hora:</h5>
-		</div>
-		<div class="d-flex gap-5">
-			<p class="card-text">{{ $event -> date }}</p>
-			<p class="card-text">{{ $event -> start_hour }}</p>
-		</div>
-		<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
-			<img src="{{ URL('/img/Turnouticon.png')}}">
-			<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
-		</div>
-		<button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
-	</div>
-</div>
-@endsection
-@break
-@endif
-@endforeach
-@endif
-
-@section('content')
-<div class="container col-3 my-4">
-	<div class="card">
+<div class="container col-4 my-4">
+	<div class="card my-4">
 		<div class=" p-3 mb-2 bg-warning text-dark d-flex justify-content-start align-items-center gap-2">
 			<img class="erase-img  h-75" src=" {{url('/img/InfoIconModal.png')}}">
 			<span class="fs-4 fw-bold">Información del Evento</span>
@@ -171,27 +141,65 @@
 			<h5 class="card-title">Descripción:</h5>
 			<p class="card-text">{{ $event -> description }}</p>
 		</div>
-		<div class="date d-flex flex-wrap gap-5 mx-4 my-2">
+		<div class="date d-flex gap-5 mx-4 my-2">
 			<div class="d-flex flex-column">
 				<h5 class="card-title">Fecha Inicio:</h5>
 				<p class="card-text">{{ $event -> date }}</p>
 			</div>
-			<div class="d-flex flex-column">
+			<div class="d-flex  flex-column">
 				<h5 class="card-title">Hora:</h5>
 				<p class="card-text">{{ $event -> start_hour }}</p>
 			</div>
 		</div>
 		<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
-			<div class="d-flex gap-2 align-items-center">
+			<div class="d-flex gap-3 align-items-center">
 				<img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
 				<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
 			</div>
-			@if(($event -> sub_people)>=($event -> total_people))
-			<button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
-			@endif
-			@if(($event -> sub_people)<($event -> total_people))
-				<a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+			<a href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')"><button type="button" class="btn btn-secondary">Desinscribirse</button></a>
+		</div>
+	</div>
+	@endsection
+	@break
+	@endif
+	@endforeach
+	@endif
+
+	@section('content')
+	<div class="container col-3 my-4">
+		<div class="card">
+			<div class=" p-3 mb-2 bg-warning text-dark d-flex justify-content-start align-items-center gap-2">
+				<img class="erase-img  h-75" src=" {{url('/img/InfoIconModal.png')}}">
+				<span class="fs-4 fw-bold">Información del Evento</span>
+			</div>
+			<div class="info d-flex flex-column justify-content-evenly mx-4">
+				<h5 class="card-title">Evento:</h5>
+				<p class="card-title">{{$event -> title}}</p>
+				<h5 class="card-title">Descripción:</h5>
+				<p class="card-text">{{ $event -> description }}</p>
+			</div>
+			<div class="date d-flex flex-wrap gap-5 mx-4 my-2">
+				<div class="d-flex flex-column">
+					<h5 class="card-title">Fecha Inicio:</h5>
+					<p class="card-text">{{ $event -> date }}</p>
+				</div>
+				<div class="d-flex flex-column">
+					<h5 class="card-title">Hora:</h5>
+					<p class="card-text">{{ $event -> start_hour }}</p>
+				</div>
+			</div>
+			<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
+				<div class="d-flex gap-2 align-items-center">
+					<img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
+					<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
+				</div>
+				@if(($event -> sub_people)>=($event -> total_people))
+				<button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
 				@endif
+				@if(($event -> sub_people)<($event -> total_people))
+					<a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+					@endif
+			</div>
 		</div>
 	</div>
 </div>
