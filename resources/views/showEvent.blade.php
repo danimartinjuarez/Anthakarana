@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @if (Auth::check() && Auth::user()->isAdmin)
 @section('content')
-<div class="card">
+<div class="container col-4 my-4">
 
 
-    <div class="card-img-overlay row g-3 col-md-5 ">
+    <div class="card">
 
-        <div class="p-3 mb-2 bg-warning text-dark">
-            <img class=" erase-img" src=" {{url('/img/InfoIcon.png')}}">
+        <div class=" p-3 mb-2 bg-warning text-dark d-flex justify-content-start align-items-center gap-2">
+            <img class="erase-img  h-75" src=" {{url('/img/InfoIconModal.png')}}">
 
             <span class="fs-4 fw-bold">Información del Evento</span>
 
@@ -28,19 +28,19 @@
             <p class="card-text">{{ $event -> start_hour }}</p>
         </div>
 
-        <div class="d-flex gap-3">
-            <img src="{{ URL('/img/Turnouticon.png')}}">
+        <div class="d-flex gap-2">
+            <img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
             <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
         </div>
 
-        <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal"
-            data-target="#deleteModal"">
-
-            <img class=" erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
+        <div class="link-unstyled d-flex">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                Eliminar
+            </button>
         </div>
+
         <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -68,14 +68,11 @@
         </div>
 
         @if(($event -> sub_people)>=($event -> total_people))
-        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')"
-            id="asist-button">Asistir</button>
+        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
         @endif
         @if(($event -> sub_people)<($event -> total_people))
 
-            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button"
-                    class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')"
-                    id="asist-button">Asistir</button></a>
+            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
 
             @endif
             </form>
@@ -85,8 +82,7 @@
             </button>
             <!-- Modal -->
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header p-3 mb-2 bg-warning text-dark">
@@ -98,8 +94,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="justify-content-center col-md-3 m-5"
-                                action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
+                            <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
                                 @method('PATCH')
                                 @csrf
 
@@ -108,40 +103,32 @@
 
 
                                     <label for="exampleFormControlInput1">Nombre</label>
-                                    <input type="text" name="title" class="form-contro" id="exampleFormControlInput1"
-                                        value="{{ $event -> title }}">
+                                    <input type="text" name="title" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> title }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Descripcion</label>
-                                    <input type="text" name="description" class="form-contro"
-                                        id="exampleFormControlInput1" value="{{ $event -> description }}">
+                                    <input type="text" name="description" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> description }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">nº Plazas</label>
-                                    <input type="number" name="total_people" class="form-contro"
-                                        id="exampleFormControlInput1" value="{{ $event -> total_people }}">
+                                    <input type="number" name="total_people" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">URL Imagen</label>
-                                    <input type="text" name="image" class="form-contro" id="exampleFormControlInput1"
-                                        value="{{ $event -> image }}">
+                                    <input type="text" name="image" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> image }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Fecha del evento</label>
-                                    <input type="date" name="date" class="form-contro" id="exampleFormControlInput1"
-                                        value="{{ $event -> date }}">
+                                    <input type="date" name="date" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> date }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Hora del evento</label>
-                                    <input type="time" name="start_hour" class="form-contro"
-                                        id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
+                                    <input type="time" name="start_hour" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
                                 </div>
 
                                 <div class="d-flex flex-row bd-highlight mb-3 p-4">
-                                    <a class="btn btn-primary"
-                                        href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
-                                    <button type="submit" class="btn btn-outline-success" value="Create"
-                                        onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
+                                    <a class="btn btn-primary" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
+                                    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
                                 </div>
 
 
@@ -201,8 +188,7 @@
 
 
 
-        <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}"
-                onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
+        <button type="button" class="btn btn-secondary"><a href="{{ route('unscribeEvent', $event->id) }}" onclick="return confirm('¿Estás seguro de querer desapuntarse de este evento? {{$event->name}} -ID {{ $event -> id }}')">Desinscribirse</a></button>
 
 
     </div>
@@ -244,15 +230,12 @@
 
 
         @if(($event -> sub_people)>=($event -> total_people))
-        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')"
-            id="asist-button">Asistir</button>
+        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
         @endif
 
         @if(($event -> sub_people)<($event -> total_people))
 
-            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button"
-                    class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')"
-                    id="asist-button">Asistir</button></a>
+            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
 
             @endif
 

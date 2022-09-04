@@ -87,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="my-4">
+        <main class="h-100 w-100 mx-auto">
             @yield('carousel')
             @yield('content')
         </main>
