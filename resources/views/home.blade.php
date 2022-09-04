@@ -49,7 +49,7 @@
 <div class="container">
   <div class="container row row-cols-1 row-cols-md-3">
     @if (Auth::check() && Auth::user()->isAdmin)
-        <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 
     <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal" data-target="#exampleModal"">
             <h5>Añadir Evento</h5>
@@ -63,9 +63,9 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header p-3 mb-2 bg-warning text-dark">
-          <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">  
-          <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVO EVENTO</h5>
-            
+            <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">
+            <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVO EVENTO</h5>
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -98,10 +98,10 @@
                 <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
               <div class="d-flex justify-content-between p-4">
-              <!-- <div class="btnCreate"> -->
+                <!-- <div class="btnCreate"> -->
                 <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">CREAR</button>
-              <!-- </div> -->
-              <!-- <div class=""> -->
+                <!-- </div> -->
+                <!-- <div class=""> -->
                 <a class="btn btn-primary" href="{{ route('home') }}">CANCELAR</a>
               </div>
             </form>
@@ -115,57 +115,55 @@
   <div class="row row-cols-1 row-cols-md-4 m-4 gap-4 justify-content-center mx-5">
     @foreach ($events as $event)
     @if ($event->date < (now()) ) <div class="card bg-dark text-white">
-      <a href="{{ route('showEvent', $event->id) }}" class="h-100 text-white"><img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
-        <div class="card-img-overlay card-img-overlay overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75">
-          <p class="text-white" id="subtitle">EVENTO PASADO</p>
-          <p class="card-title" id="info">{{$event -> title}}</p>
-          <p class="card-text" id="info">{{$event -> date}}</p>
-          <x-css-info />
-        </div>
-      </a>
-
-  @endif
-  @if ($event->date > (now()))
-  <div class="card bg-dark text-white">
-    <a href="{{ route('showEvent', $event->id) }}" class="text-white h-100"><img class="card-img img-fluid h-100" src="{{ $event -> image }}" alt="Card image"></a>
-    <div class="card-img-overlay overlay h-100 w-100 d-flex justify-content-between ">
-      <div class="bg-card">
-        <div class="align-self-center ms-3 py-2">
-          <p class="card-title text-white" id="info">{{$event -> title}}</p>
-          <p class="card-text text-white" id="info">{{$event -> date}}</p>
-        </div>
-
-        <div class="align-self-center d-flex flex-column align-items-center justify-content-center me-3 py-2">
-          <a href="{{ route('showEvent', $event->id) }}" class="text-white">
-            <x-css-info />
-          </a>
-          @if (Auth::check() && Auth::user()->isAdmin)
-          <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
-            @method('PATCH')
-            @csrf
-            @foreach ( $caroousels as $caroouselevent)
-            @if ($caroouselevent->id == $event->id)
-            @if ($caroouselevent->caroousel == true)
-            <button name="caroousel" type="submit" class="btn btn-info" value="0">No destacar</button>
-            @endif
-            @if ($caroouselevent->caroousel == false)
-            <button name="caroousel" type="submit" class="btn btn-info" value="1">Destacar</button>
-            @endif
-            @endif
-            @endforeach
-
-          </form>
-          @endif
-
-        </div>
+      <img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
+      <div class="card-img-overlay card-img-overlay overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75">
+        <p class="text-white" id="subtitle">EVENTO PASADO</p>
+        <p class="card-title" id="info">{{$event -> title}}</p>
+        <p class="card-text" id="info">{{$event -> date}}</p>
+        <x-css-info />
       </div>
-    </div>
-    @endif
+      @endif
+      @if ($event->date > (now()))
+      <div class="card bg-dark text-white">
+        <a href="{{ route('showEvent', $event->id) }}" class="text-white h-100"><img class="card-img img-fluid h-100" src="{{ $event -> image }}" alt="Card image"></a>
+        <div class="card-img-overlay overlay h-100 w-100 d-flex justify-content-between ">
+          <div class="bg-card">
+            <div class="align-self-center ms-3 py-2">
+              <p class="card-title text-white" id="info">{{$event -> title}}</p>
+              <p class="card-text text-white" id="info">{{$event -> date}}</p>
+            </div>
+
+            <div class="align-self-center d-flex flex-column align-items-center justify-content-center me-3 py-2">
+              <a href="{{ route('showEvent', $event->id) }}" class="text-white">
+                <x-css-info />
+              </a>
+              @if (Auth::check() && Auth::user()->isAdmin)
+              <form method="post" action="{{ route('updateCaroousel', ['id'=>$event->id]) }}">
+                @method('PATCH')
+                @csrf
+                @foreach ( $caroousels as $caroouselevent)
+                @if ($caroouselevent->id == $event->id)
+                @if ($caroouselevent->caroousel == true)
+                <button name="caroousel" type="submit" class="btn btn-info" value="0">No destacar</button>
+                @endif
+                @if ($caroouselevent->caroousel == false)
+                <button name="caroousel" type="submit" class="btn btn-info" value="1">Destacar</button>
+                @endif
+                @endif
+                @endforeach
+
+              </form>
+              @endif
+
+            </div>
+          </div>
+        </div>
+        @endif
+      </div>
+      @endforeach
+      <div class="d-flex justify-content-center">
+        {!! $events->links() !!}
+      </div>
   </div>
-  @endforeach
-  <div class="d-flex justify-content-center">
-    {!! $events->links() !!}
-  </div>
-</div>
 </div>
 @endsection

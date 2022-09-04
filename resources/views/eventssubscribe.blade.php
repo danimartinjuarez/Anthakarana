@@ -5,7 +5,6 @@
     <div class="card bg-dark text-white">
         <img class="card-img img-fluid h-100 d-flex" src="{{ $event -> image }}" alt="Card image">
         <div class="card-img-overlay overlay d-flex">
-            </img>
             <div class="w-75 h-10 d-flex flex-column align-self-end">
                 <h5 class="card-title">{{$event -> title}}</h5>
                 <p class="card-text">{{$event -> date}}</p>
