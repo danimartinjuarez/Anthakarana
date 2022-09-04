@@ -3,12 +3,12 @@
 @section('content')
 <div class="card">
 
-    <div class="card-img-overlay">
+    <div class="card-img-overlay row g-3 col-md-5">
         <h5 class="card-title">Evento:</h5>
         <p class="card-title">{{$event -> title}}</p>
         <h5 class="card-title">Descripción:</h5>
         <p class="card-text">{{ $event -> description }}</p>
-        <h5 class="card-title">Comienzo:</h5>
+        
 
         <div class="d-flex gap-5">
             <h5 class="card-title">Fecha Inicio:</h5>
@@ -42,16 +42,18 @@
                 </form>
                     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  Editar
 </button>
 <!-- Modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <div class="modal-header p-3 mb-2 bg-warning text-dark">
+        <img src="/img/EditButonIcon.png" alt="Boton de editar">
+        <h5 class="modal-title" id="exampleModalLabel">Editar el evento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -59,40 +61,44 @@
       <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
   @method('PATCH')
   @csrf
-
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Name</label>
-    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ $event -> title }}">
+  
+  
+  <div class="form-group ">
+ 
+    
+    <label for="exampleFormControlInput1">Nombre</label>
+    <input type="text" name="title" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> title }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Description</label>
-    <input type="text" name="description" class="form-control" id="exampleFormControlInput1" value="{{ $event -> description }}">
+    <label for="exampleFormControlInput1">Descripcion</label>
+    <input type="text" name="description" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> description }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">People</label>
-    <input type="number" name="total_people" class="form-control" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
+    <label for="exampleFormControlInput1">nº Plazas</label>
+    <input type="number" name="total_people" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Image</label>
-    <input type="text" name="image" class="form-control" id="exampleFormControlInput1" value="{{ $event -> image }}">
+    <label for="exampleFormControlInput1">URL Imagen</label>
+    <input type="text" name="image" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> image }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Date</label>
-    <input type="date" name="date" class="form-control" id="exampleFormControlInput1" value="{{ $event -> date }}">
+    <label for="exampleFormControlInput1">Fecha del evento</label>
+    <input type="date" name="date" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> date }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Start Hour</label>
-    <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
-  </div>
-
-  <div class="float-right">
-    <a class="btn btn-primary" href="{{ route('home') }}">Home</a>
-  </div>
-  <div class="btnCreate">
-    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}} -ID {{ $event -> id }}')">Editar</button>
+    <label for="exampleFormControlInput1">Hora del evento</label>
+    <input type="time" name="start_hour" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
   </div>
 
-
+  <div class="d-flex flex-row bd-highlight mb-3 p-4">
+    <a class="btn btn-primary" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
+    <button type="submit" class="btn btn-outline-success" value="Create"  onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
+  </div>
+  
+   
+  </div>
+  
+  </div>
 </form>
 
    
