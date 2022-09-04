@@ -86,50 +86,48 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <div class="modal-header p-3 mb-2 bg-warning text-dark">
-                                <img src="/img/EditButonIcon.png" alt="Boton de editar">
-                                <h5 class="modal-title" id="exampleModalLabel">Editar el evento</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal-header bg-warning text-dark d-flex align-items-center">
 
+                                <h5 class="modal-title" id="exampleModalLabel"><img src="/img/EditButonIcon.png" alt="Boton de editar"> Editar evento</h5>
+                                <button type="button" class="close bg-transparent border-0" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
+                                <form class="d-flex flex-column justify-content-center m-2" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
                                     @method('PATCH')
                                     @csrf
 
 
-                                    <div class="form-group ">
-
-
+                                    <div class="form-group d-flex flex-column m-2 ">
                                         <label for="exampleFormControlInput1">Nombre</label>
                                         <input type="text" name="title" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> title }}">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-flex flex-column m-2">
                                         <label for="exampleFormControlInput1">Descripcion</label>
                                         <input type="text" name="description" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> description }}">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-flex flex-column m-2">
                                         <label for="exampleFormControlInput1">nº Plazas</label>
                                         <input type="number" name="total_people" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-flex flex-column m-2">
                                         <label for="exampleFormControlInput1">URL Imagen</label>
                                         <input type="text" name="image" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> image }}">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-flex flex-column m-2">
                                         <label for="exampleFormControlInput1">Fecha del evento</label>
                                         <input type="date" name="date" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> date }}">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-flex flex-column m-2">
                                         <label for="exampleFormControlInput1">Hora del evento</label>
                                         <input type="time" name="start_hour" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
                                     </div>
 
-                                    <div class="d-flex flex-row bd-highlight mb-3 p-4">
-                                        <a class="btn btn-primary" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
-                                        <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
+                                    <div class="d-flex gap-3 bd-highlight justify-content-evenly m-3">
+                                        <button type="submit" class="btn btn-primary" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
+                                        <a class="btn btn-danger" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
+
                                     </div>
 
 
