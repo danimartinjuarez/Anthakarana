@@ -23,8 +23,8 @@
 				<p class="card-text">{{ $event -> start_hour }}</p>
 			</div>
 		</div>
-		<div class="buttons d-flex justify-content-around align-items-center my-2">
-			<div class="d-flex gap-2">
+		<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
+			<div class="d-flex gap-3 align-items-center">
 				<img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
 				<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
 			</div>
@@ -38,23 +38,20 @@
 			<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
-						<div class="modal-header">
-							<img src="{{url('/img/Logo.png')}}" alt="Logo">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
+						<div class="modal-header d-flex align-items-center justify-content-center w-100">
+							<img class=" align-item-center" src="{{url('/img/Logo.png')}}" alt="Logo">
 						</div>
 						<div class="modal-body">
 							<form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
 								@method('delete')
 								@csrf
-								<h5>¿QUIERE BORRAR EL EVENTO : {{ $event->title }} </h5>
-								<button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center">
-									<img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
-								</button>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">CANCEL</span>
-								</button>
+								<h5 class="text-center my-2">¿Esta seguro que quiere borrar el evento <em>{{ $event->title }}</em> ?</h5>
+								<div class="d-flex gap-3 bd-highlight justify-content-center gap-5 m-3">
+									<button type="submit" class="btn btn-danger">SI</button>
+									<button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">NO</span>
+									</button>
+								</div>
 							</form>
 						</div>
 
@@ -148,7 +145,7 @@
 			<p class="card-text">{{ $event -> date }}</p>
 			<p class="card-text">{{ $event -> start_hour }}</p>
 		</div>
-		<div class="d-flex gap-3">
+		<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
 			<img src="{{ URL('/img/Turnouticon.png')}}">
 			<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
 		</div>
@@ -174,7 +171,7 @@
 			<h5 class="card-title">Descripción:</h5>
 			<p class="card-text">{{ $event -> description }}</p>
 		</div>
-		<div class="date d-flex gap-5 mx-4 my-2">
+		<div class="date d-flex flex-wrap gap-5 mx-4 my-2">
 			<div class="d-flex flex-column">
 				<h5 class="card-title">Fecha Inicio:</h5>
 				<p class="card-text">{{ $event -> date }}</p>
@@ -184,7 +181,7 @@
 				<p class="card-text">{{ $event -> start_hour }}</p>
 			</div>
 		</div>
-		<div class="buttons d-flex justify-content-around align-items-center my-2">
+		<div class="buttons d-flex flex-wrap justify-content-around align-items-center my-2">
 			<div class="d-flex gap-2 align-items-center">
 				<img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
 				<p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
