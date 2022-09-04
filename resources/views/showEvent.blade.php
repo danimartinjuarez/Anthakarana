@@ -8,10 +8,9 @@
 
         <div class=" p-3 mb-2 bg-warning text-dark d-flex justify-content-start align-items-center gap-2">
             <img class="erase-img  h-75" src=" {{url('/img/InfoIconModal.png')}}">
-
             <span class="fs-4 fw-bold">Información del Evento</span>
-
         </div>
+
         <div class="info d-flex flex-column justify-content-evenly mx-4">
             <h5 class="card-title">Evento:</h5>
             <p class="card-title">{{$event -> title}}</p>
@@ -29,8 +28,8 @@
                 <h5 class="card-title">Hora:</h5>
                 <p class="card-text">{{ $event -> start_hour }}</p>
             </div>
-
         </div>
+
         <div class="buttons d-flex justify-content-around align-items-center my-2">
             <div class="d-flex gap-2">
                 <img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
@@ -86,13 +85,14 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <div class="modal-header bg-warning text-dark d-flex align-items-center">
 
-                                <h5 class="modal-title" id="exampleModalLabel"><img src="/img/EditButonIcon.png" alt="Boton de editar"> Editar evento</h5>
+                            <div class="modal-header bg-warning text-dark d-flex align-items-center">
+                                <h5 class="modal-title" id="exampleModalLabel"><img class="erase-img me-3" src="/img/EditButonIcon.png" alt="Boton de editar">Editar evento</h5>
                                 <button type="button" class="close bg-transparent border-0" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form class="d-flex flex-column justify-content-center m-2" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
                                     @method('PATCH')
@@ -200,46 +200,50 @@
 @endif
 
 @section('content')
-<div class="card">
+<div class="container col-3 my-4">
+    <div class="card">
 
-    <div class="card-img-overlay">
-        <h5 class="card-title">Evento:</h5>
-        <p class="card-title">{{$event -> title}}</p>
-        <h5 class="card-title">Descripción:</h5>
-        <p class="card-text">{{ $event -> description }}</p>
-        <h5 class="card-title">Comienzo:</h5>
-
-        <div class="d-flex gap-5">
-            <h5 class="card-title">Fecha Inicio:</h5>
-            <h5 class="card-title">Hora:</h5>
+        <div class=" p-3 mb-2 bg-warning text-dark d-flex justify-content-start align-items-center gap-2">
+            <img class="erase-img  h-75" src=" {{url('/img/InfoIconModal.png')}}">
+            <span class="fs-4 fw-bold">Información del Evento</span>
         </div>
 
-        <div class="d-flex gap-5">
-            <p class="card-text">{{ $event -> date }}</p>
-            <p class="card-text">{{ $event -> start_hour }}</p>
+        <div class="info d-flex flex-column justify-content-evenly mx-4">
+            <h5 class="card-title">Evento:</h5>
+            <p class="card-title">{{$event -> title}}</p>
+            <h5 class="card-title">Descripción:</h5>
+            <p class="card-text">{{ $event -> description }}</p>
         </div>
 
-        <div class="d-flex gap-3">
-            <img src="{{ URL('/img/Turnouticon.png')}}">
-            <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
+        <div class="date d-flex gap-5 mx-4 my-2">
+            <div class="d-flex flex-column">
+                <h5 class="card-title">Fecha Inicio:</h5>
+                <p class="card-text">{{ $event -> date }}</p>
+            </div>
+
+            <div class="d-flex flex-column">
+                <h5 class="card-title">Hora:</h5>
+                <p class="card-text">{{ $event -> start_hour }}</p>
+            </div>
         </div>
+        <div class="buttons d-flex justify-content-around align-items-center my-2">
+            <div class="d-flex gap-2 align-items-center">
+                <img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
+                <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
+            </div>
 
-
-
-
-
-        @if(($event -> sub_people)>=($event -> total_people))
-        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
-        @endif
-
-        @if(($event -> sub_people)<($event -> total_people))
-
-            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
-
+            @if(($event -> sub_people)>=($event -> total_people))
+            <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
             @endif
 
-    </div>
+            @if(($event -> sub_people)<($event -> total_people))
 
+                <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+
+                @endif
+
+        </div>
+    </div>
 </div>
 
 @endsection

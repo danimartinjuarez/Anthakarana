@@ -63,46 +63,44 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header p-3 mb-2 bg-warning text-dark">
-            <img class=" erase-img" src=" {{url('/img/AddEventButton.png')}}">
-            <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVO EVENTO</h5>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="exampleModalLabel"><img class="erase-img me-3" src=" {{url('/img/AddEventButton.png')}}">AÑADIR NUEVO EVENTO</h5>
+            <button type="button" class="close bg-transparent border-0 " data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form class="justify-content-center col-md-3 m-5" action="{{ route('storeEvent') }}" method="post">
+            <form class="d-flex flex-column justify-content-center m-2" action="{{ route('storeEvent') }}" method="post">
               @csrf
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">Nombre del Evento</label>
                 <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">Descripción</label>
                 <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">Número de Plazas</label>
                 <input type="number" name="total_people" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">URL Imagen</label>
                 <input type="text" name="image" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">Fecha del Evento</label>
                 <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column m-2">
                 <label for="exampleFormControlInput1">Hora del Evento</label>
                 <input type="time" name="start_hour" class="form-control" id="exampleFormControlInput1" placeholder="">
               </div>
-              <div class="d-flex justify-content-between p-4">
+              <div class="d-flex gap-3 justify-content-evenly m-3">
                 <!-- <div class="btnCreate"> -->
-                <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">CREAR</button>
+                <button type="submit" class="btn btn-primary" value="Create" onclick="return confirm('¿Estás seguro de querer crear este evento?')">CREAR EVENTO</button>
                 <!-- </div> -->
                 <!-- <div class=""> -->
-                <a class="btn btn-primary" href="{{ route('home') }}">CANCELAR</a>
+                <a class="btn btn-danger" href="{{ route('home') }}">CANCELAR</a>
               </div>
             </form>
           </div>
