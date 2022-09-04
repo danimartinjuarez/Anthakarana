@@ -3,7 +3,15 @@
 @section('content')
 <div class="card">
 
-    <div class="card-img-overlay">
+
+    <div class="card-img-overlay ">
+      
+    <div class="p-3 mb-2 bg-warning text-dark">
+      <img class=" erase-img" src=" {{url('/img/InfoIcon.png')}}">
+      
+      <span class="fs-4 fw-bold">Información del Evento</span>
+    
+    </div>
         <h5 class="card-title">Evento:</h5>
         <p class="card-title">{{$event -> title}}</p>
         <h5 class="card-title">Descripción:</h5>
