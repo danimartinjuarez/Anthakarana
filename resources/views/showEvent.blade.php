@@ -12,137 +12,138 @@
             <span class="fs-4 fw-bold">Información del Evento</span>
 
         </div>
-        <h5 class="card-title">Evento:</h5>
-        <p class="card-title">{{$event -> title}}</p>
-        <h5 class="card-title">Descripción:</h5>
-        <p class="card-text">{{ $event -> description }}</p>
-
-
-        <div class="d-flex gap-5">
-            <h5 class="card-title">Fecha Inicio:</h5>
-            <h5 class="card-title">Hora:</h5>
+        <div class="info d-flex flex-column justify-content-evenly mx-4">
+            <h5 class="card-title">Evento:</h5>
+            <p class="card-title">{{$event -> title}}</p>
+            <h5 class="card-title">Descripción:</h5>
+            <p class="card-text">{{ $event -> description }}</p>
         </div>
 
-        <div class="d-flex gap-5">
-            <p class="card-text">{{ $event -> date }}</p>
-            <p class="card-text">{{ $event -> start_hour }}</p>
-        </div>
-
-        <div class="d-flex gap-2">
-            <img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
-            <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
-        </div>
-
-        <div class="link-unstyled d-flex">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
-                Eliminar
-            </button>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <img src="{{url('/img/Logo.png')}}" alt="Logo">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
-                            @method('delete')
-                            @csrf
-                            <h5>¿QUIERE BORRAR EL EVENTO : {{ $event->title }} </h5>
-                            <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center">
-                                <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
-                            </button>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">CANCEL</span>
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
+        <div class="date d-flex gap-5 mx-4 my-2">
+            <div class="d-flex flex-column">
+                <h5 class="card-title">Fecha Inicio:</h5>
+                <p class="card-text">{{ $event -> date }}</p>
             </div>
+
+            <div class="d-flex  flex-column">
+                <h5 class="card-title">Hora:</h5>
+                <p class="card-text">{{ $event -> start_hour }}</p>
+            </div>
+
         </div>
+        <div class="buttons d-flex justify-content-around align-items-center my-2">
+            <div class="d-flex gap-2">
+                <img class="h-50" src="{{ URL('/img/Turnouticon.png')}}">
+                <p class="card-text">{{ $event -> sub_people }}/{{ $event -> total_people }}</p>
+            </div>
 
-        @if(($event -> sub_people)>=($event -> total_people))
-        <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
-        @endif
-        @if(($event -> sub_people)<($event -> total_people))
+            <div class="link-unstyled d-flex">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                    Eliminar
+                </button>
+            </div>
 
-            <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
-
-            @endif
-            </form>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Editar
-            </button>
             <!-- Modal -->
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header p-3 mb-2 bg-warning text-dark">
-                            <img src="/img/EditButonIcon.png" alt="Boton de editar">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar el evento</h5>
+                        <div class="modal-header">
+                            <img src="{{url('/img/Logo.png')}}" alt="Logo">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
-                                @method('PATCH')
+                            <form action="{{ route('delete', ['id' => $event->id]) }}" method="post" class="erase-button">
+                                @method('delete')
                                 @csrf
-
-
-                                <div class="form-group ">
-
-
-                                    <label for="exampleFormControlInput1">Nombre</label>
-                                    <input type="text" name="title" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> title }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Descripcion</label>
-                                    <input type="text" name="description" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> description }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">nº Plazas</label>
-                                    <input type="number" name="total_people" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">URL Imagen</label>
-                                    <input type="text" name="image" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> image }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Fecha del evento</label>
-                                    <input type="date" name="date" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> date }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Hora del evento</label>
-                                    <input type="time" name="start_hour" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
-                                </div>
-
-                                <div class="d-flex flex-row bd-highlight mb-3 p-4">
-                                    <a class="btn btn-primary" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
-                                    <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
-                                </div>
-
-
+                                <h5>¿QUIERE BORRAR EL EVENTO : {{ $event->title }} </h5>
+                                <button type="submit" class="bt-adm m-1 d-flex justify-content-center align-items-center">
+                                    <img class="erase-img" src=" {{url('/img/DeleteButtonIcon.png')}}">
+                                </button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">CANCEL</span>
+                                </button>
+                            </form>
                         </div>
 
                     </div>
-                    </form>
-
-
                 </div>
             </div>
 
+            @if(($event -> sub_people)>=($event -> total_people))
+            <button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
+            @endif
+            @if(($event -> sub_people)<($event -> total_people))
+                <a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
+                @endif
+                </form>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Editar</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header p-3 mb-2 bg-warning text-dark">
+                                <img src="/img/EditButonIcon.png" alt="Boton de editar">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar el evento</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="justify-content-center col-md-3 m-5" action="{{ route('eventupdate', ['id'=>$event->id]) }}" method="post">
+                                    @method('PATCH')
+                                    @csrf
 
 
+                                    <div class="form-group ">
+
+
+                                        <label for="exampleFormControlInput1">Nombre</label>
+                                        <input type="text" name="title" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> title }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Descripcion</label>
+                                        <input type="text" name="description" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> description }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">nº Plazas</label>
+                                        <input type="number" name="total_people" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> total_people }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">URL Imagen</label>
+                                        <input type="text" name="image" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> image }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Fecha del evento</label>
+                                        <input type="date" name="date" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> date }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Hora del evento</label>
+                                        <input type="time" name="start_hour" class="form-contro" id="exampleFormControlInput1" value="{{ $event -> start_hour }}">
+                                    </div>
+
+                                    <div class="d-flex flex-row bd-highlight mb-3 p-4">
+                                        <a class="btn btn-primary" href="{{ route('showEvent', $event -> id) }}">Cancelar</a>
+                                        <button type="submit" class="btn btn-outline-success" value="Create" onclick="return confirm('¿Estás seguro de querer modificar este evento? {{$event->name}}')">Aceptar</button>
+                                    </div>
+
+
+                            </div>
+
+                        </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+        </div>
 
     </div>
 
