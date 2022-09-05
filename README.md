@@ -55,7 +55,7 @@ Start the server
 
 ## Technical requirements
 
--Laravel 9
+- Laravel 9
 - PHP 8.1.6
 - Composer 2.3.10
 
@@ -79,7 +79,9 @@ To run tests, run the following command
 ## Versions
 
 ![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/Captura%20de%20pantalla%202022-09-05%20200127.png)
-
+- v1.0 Base version with the CRUD of the app and some styles
+- v1.1 Version with all styles and finished tests
+- v1.2 Version with extras like user control with Read and Delete, music and changed cursor
 
 #### Tools and technologies used
 
