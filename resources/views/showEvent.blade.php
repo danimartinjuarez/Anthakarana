@@ -58,12 +58,7 @@
 					</div>
 				</div>
 			</div>
-			@if(($event -> sub_people)>=($event -> total_people))
-			<button type="button" class="btn btn-primary" onclick="return confirm('Evento completo')" id="asist-button">Asistir</button>
-			@endif
-			@if(($event -> sub_people)<($event -> total_people))
-				<a href="{{ route('inscribeEvent', ['id'=>$event->id]) }}"><button type="button" class="btn btn-primary buttonAsist text-white" onclick="('Evento completo')" id="asist-button">Asistir</button></a>
-				@endif
+	
 				</form>
 
 				<!-- Button trigger modal -->
