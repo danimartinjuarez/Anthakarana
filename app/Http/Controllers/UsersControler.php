@@ -19,7 +19,7 @@ class UsersControler extends Controller
                 User::destroy($id);
                 return redirect()->route('indexUsers');
         }
-
+        return redirect()->route('indexUsers');
 
     }
 }

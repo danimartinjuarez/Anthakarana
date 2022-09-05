@@ -55,7 +55,7 @@
 							@endif
 							@else
 							<a href="{{ url('/') }}" id="homelink" class="nav-link m-4 log-out">HOME</a>
-							@if (Route::has('register') && Auth::user()->isAdmin === false)
+							@if (Route::has('register') && Auth::user()->isAdmin == false)
 							<a href="{{ route('eventssubscribed') }}" id="misEventosLink" class="nav-link m-4 log-out">MIS EVENTOS</a>
 							@endif
                             @if (Route::has('register') && Auth::user()->isAdmin)
