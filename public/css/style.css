@@ -4,7 +4,7 @@ body {
 	width: 100vw;
 	min-height: 100vh;
 	text-rendering: optimizeLegibility;
-    cursor: url('/img/cursor1.png'), auto;
+    cursor: url('/img/cursor.png'), auto;
 }
 
 #title {
