@@ -148,9 +148,10 @@
 				@endif
 			</div>
 			@endforeach
-			<div class="d-flex justify-content-center">
+			
+	</div>
+	<div class="d-flex justify-content-center">
 				{!! $events->links() !!}
 			</div>
-	</div>
 </div>
 @endsection
