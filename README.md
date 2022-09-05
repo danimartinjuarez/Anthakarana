@@ -78,7 +78,7 @@ To run tests, run the following command
 
 ## Versions
 
-![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/Captura de pantalla 2022-09-05 200127.png)
+![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/Captura%20de%20pantalla%202022-09-05%20200127.png)
 
 
 #### Tools and technologies used
