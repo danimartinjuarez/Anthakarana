@@ -34,7 +34,7 @@
 
 
 
-            <div class="card-footer">
+            <div class="card-footer d-flex justify-content-center">
                 <div class=" d-inline-flex justify-content-center gap-2 m-4 link-unstyled" data-toggle="modal"
                     data-target="#deleteModal {{ $user->id }} ">
 
