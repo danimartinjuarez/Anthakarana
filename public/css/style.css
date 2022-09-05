@@ -4,9 +4,8 @@ body {
 	width: 100vw;
 	min-height: 100vh;
 	text-rendering: optimizeLegibility;
-
+    cursor: url('/img/cursor1.png'), auto;
 }
-.url{cursor:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCEjkue7dCOxfMBrKdzy-BDHfRwoXOZWzcFg&usqp=CAU), auto;}
 
 #title {
 	font-family: 'Lato', sans-serif;
