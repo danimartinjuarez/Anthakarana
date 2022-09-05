@@ -8,12 +8,12 @@ Anthakarana is a web app to manage events and be able to sign up for them throug
 
 ## Demo
 
-![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/Desktop-APP.gif)
+![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/DesktopREADME-APP.gif)
 
 
 <details><summary>Mobile version</summary>
 
-![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/DesktopMobile-APP.gif)
+![](https://github.com/prlongoria/Anthakarana/blob/main/public/img/DesktopMobileREADME-APP.gif)
 
 </details>
 
