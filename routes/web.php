@@ -19,7 +19,7 @@ use App\Http\Controllers\EventController;
 Route::get('/', [EventController::class, 'index'])->name('home');
 
 Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 
 Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete')->middleware('isadmin', 'auth');
