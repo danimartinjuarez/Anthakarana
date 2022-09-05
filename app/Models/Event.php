@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-        'title',
-        'total_people',
-        'sub_people',
-        'description',
-        'image',
-        'date',
-        'start_hour',
-        'caroousel',
-    ];
-    public function user() {
-        return $this->belongsToMany(User::class);
-
-    }
+	use HasFactory;
+	protected $fillable = [
+		'title',
+		'total_people',
+		'sub_people',
+		'description',
+		'image',
+		'date',
+		'start_hour',
+		'caroousel',
+	];
+	public function user()
+	{
+		return $this->belongsToMany(User::class);
+	}
 }
